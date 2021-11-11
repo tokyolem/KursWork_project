@@ -14,6 +14,7 @@ public :
 	void create_table_for_accounts();
 	void remove_accounts();
 	void edit_account();
+	void hus();
 
 private:
 	QWidget* _parent;
