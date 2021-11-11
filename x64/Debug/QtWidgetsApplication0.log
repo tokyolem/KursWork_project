@@ -1,0 +1,12 @@
+﻿  moc AccountsPage.h
+  AccountsPage.cpp
+  Authorization.cpp
+  CheckFields.cpp
+  QtWidgetsApplication0.cpp
+  Registration.cpp
+  Session.cpp
+  main.cpp
+C:\Users\heens\source\repos\QtWidgetsApplication0\QtWidgetsApplication0\CheckFields.cpp(154,17): warning C4129: +: неизвестная escape-последовательность
+  moc_AccountsPage.cpp
+  moc_QtWidgetsApplication0.cpp
+  QtWidgetsApplication0.vcxproj -> C:\Users\heens\source\repos\QtWidgetsApplication0\x64\Debug\QtWidgetsApplication0.exe
