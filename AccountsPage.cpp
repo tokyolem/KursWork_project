@@ -41,7 +41,6 @@ void AccountsPage::remove_accounts() {
 
 void AccountsPage::edit_account() {
 	string input_login = ui->setLogin_2->text().toStdString();
-
 }
 
 
