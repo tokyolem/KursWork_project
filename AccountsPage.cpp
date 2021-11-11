@@ -39,6 +39,11 @@ void AccountsPage::remove_accounts() {
 	qDeleteAll(ui->page_4->findChildren<QPushButton*>("btn_of_accounts"));
 }
 
+void AccountsPage::edit_account() {
+	string input_login = ui->setLogin_2->text().toStdString();
+
+}
+
 
 
 

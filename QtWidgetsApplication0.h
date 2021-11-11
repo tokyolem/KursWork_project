@@ -23,9 +23,6 @@ private slots:
     void on_pushButton_8_clicked();
     void on_pushButton_4_clicked();
     void on_btn_clicked();
-
-    void on_checkBox_clicked();
-
     void on_Back_2_clicked();
 
 private:

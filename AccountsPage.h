@@ -13,6 +13,7 @@ public :
 
 	void create_table_for_accounts();
 	void remove_accounts();
+	void edit_account();
 
 private:
 	QWidget* _parent;

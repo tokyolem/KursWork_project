@@ -62,24 +62,9 @@ void QtWidgetsApplication0::on_pushButton_4_clicked()
 
 void QtWidgetsApplication0::on_btn_clicked() {
     ui.stackedWidget->setCurrentWidget(ui.main_first);
-    ui.stackedWidget->setCurrentWidget(ui.page_10);
-
-    QString str;
-    QLabel* label_acc;
-
-    vector<int>ids = sql_db->get_ints(5);
-
-    for (int row = 0; row < ids.size(); row++) {
-        str = QString::fromStdString(accounts_db->get_text("ID", to_string(ids[row]), 0));
-        label_acc = new QLabel(str, ui.page_10);
-        label_acc->setObjectName("labels");
-        label_acc->setGeometry(530, 75, 131, 41);
-        label_acc->show();
-    }
+    ui.stackedWidget->setCurrentWidget(ui.page_10);     
+}
     
-}
 
-void QtWidgetsApplication0::on_checkBox_clicked()
-{
-    account.access = 1;
-}
+
+
