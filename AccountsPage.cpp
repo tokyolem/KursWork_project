@@ -14,6 +14,7 @@ AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui
 	connect(ui->accept, &QPushButton::clicked, this,
 		[=]() {
 			edit_account_login();
+			edit_account_access();
 		});
 }
 
@@ -71,10 +72,13 @@ void AccountsPage::edit_account_login() {
 	string input_login = ui->setLogin_edit->text().toStdString();
 
 	accounts_db->update("LOGIN","'" + input_login + "'", "LOGIN='" + str + "'");
+}
 
-	ui->access_box->isChecked();
-	
-	
+void AccountsPage::edit_account_access() {
+	bool is_access = ui->access_box->isChecked();
+	string str = ui->label_9->text().toStdString();
+
+	accounts_db->update("ACCESS", to_string(is_access) , "LOGIN='" + str + "'");
 }
 
 

@@ -15,6 +15,7 @@ public :
 	void remove_accounts();
 	void open_edit_account_page();
 	void edit_account_login();
+	void edit_account_access();
 
 private:
 	QWidget* _parent;
