@@ -13,8 +13,8 @@ public :
 
 	void create_table_for_accounts();
 	void remove_accounts();
-	void edit_account();
-	void hus();
+	void open_edit_account_page();
+	void edit_account_login();
 
 private:
 	QWidget* _parent;

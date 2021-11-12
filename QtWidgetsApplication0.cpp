@@ -65,6 +65,3 @@ void QtWidgetsApplication0::on_btn_clicked() {
     ui.stackedWidget->setCurrentWidget(ui.page_10);     
 }
     
-
-
-

@@ -11,6 +11,10 @@ AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui
 	this->_parent = parent;
 	this->ui = ui;
 	this->accounts_db = accounts_db;
+	connect(ui->accept, &QPushButton::clicked, this,
+		[=]() {
+			edit_account_login();
+		});
 }
 
 void AccountsPage::create_table_for_accounts() {
@@ -29,9 +33,27 @@ void AccountsPage::create_table_for_accounts() {
 			col++;
 		}
 		btn->setGeometry(START_X + ADD * (row % 4), START_Y + ADD_Y * col, 235, 100);
-		btn->setStyleSheet("background-color: white; border-style: solid; border-width: 2px; border-radius: 10px; border-color: lightGray; font: bold 14px; min-width: 10em; padding: 6px;");
+		btn->setStyleSheet("QPushButton{"
+		"background-color: white; "
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-radius: 10px;"
+		"border-color: lightGray;"
+		"font: 14pt \"Rockwell\"; "
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: lightGray; }" );
+
 		btn->show();
-		connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
+		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
+		connect(btn, &QPushButton::clicked, this, 
+			[=]() {
+				ui->label_9->setText(str);
+				ui->setLogin_edit->setText(str);
+				open_edit_account_page();
+				
+			});
 	}
 }
 
@@ -39,14 +61,20 @@ void AccountsPage::remove_accounts() {
 	qDeleteAll(ui->page_4->findChildren<QPushButton*>("btn_of_accounts"));
 }
 
-void AccountsPage::edit_account() {
-	string input_login = ui->setLogin_2->text().toStdString();
+void AccountsPage::open_edit_account_page() {
+	ui->stackedWidget->setCurrentWidget(ui->main_first);
+	ui->stackedWidget->setCurrentWidget(ui->page_10);
 }
 
-void AccountsPage::hus() {
+void AccountsPage::edit_account_login() {
+	string str = ui->label_9->text().toStdString();
+	string input_login = ui->setLogin_edit->text().toStdString();
 
+	accounts_db->update("LOGIN","'" + input_login + "'", "LOGIN='" + str + "'");
 
-
+	ui->access_box->isChecked();
+	
+	
 }
 
 

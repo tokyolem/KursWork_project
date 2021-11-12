@@ -68,8 +68,8 @@ string SQLdb::get_thrustback(vector<string> weald) {
 }
 
 
-void SQLdb::update(string fild_for_update, string new_value, string rule) {
-	string sql = "UPDATE " + NAME_OF_DATABASE + " set " + fild_for_update + " = " + new_value + " where " + rule + " ;";
+void SQLdb::update(string weald, string value, string text) {
+	string sql = "UPDATE " + NAME_OF_DATABASE + " set " + weald + " = " + value + " where " + text + " ;";
 	get_sql_command_make(sql);
 }
 

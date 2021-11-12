@@ -448,6 +448,9 @@ font: 14pt &quot;Rockwell&quot;;
      </widget>
     </widget>
     <widget class="QWidget" name="page">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <widget class="QStackedWidget" name="stackedWidget_2">
       <property name="geometry">
        <rect>
@@ -458,7 +461,9 @@ font: 14pt &quot;Rockwell&quot;;
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 254, 234);</string>
+       <string notr="true">background-color: rgb(255, 254, 234);
+
+</string>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -474,19 +479,22 @@ font: 14pt &quot;Rockwell&quot;;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white;
-font: 16pt &quot;Rockwell&quot;;
+         <string notr="true">QPushButton{
+background-color: white;
 
      border-style: solid;
-     border-width: 2px;
+     border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
-    
-     min-width: 6em;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
      padding: 3px;
+}
 
-
-</string>
+QPushButton::hover{
+	background-color: lightGray;	
+}</string>
         </property>
         <property name="text">
          <string>Manage accounts</string>
@@ -502,16 +510,22 @@ font: 16pt &quot;Rockwell&quot;;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white;
-font: 16pt &quot;Rockwell&quot;;
+         <string notr="true">QPushButton{
+background-color: white;
 
      border-style: solid;
-     border-width: 2px;
+     border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
-    
-     min-width: 6em;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
      padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
 </string>
         </property>
         <property name="text">
@@ -609,9 +623,66 @@ font: 16pt &quot;Rockwell&quot;;
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="page_4"/>
+      <widget class="QWidget" name="page_4">
+       <widget class="QPushButton" name="accounts_edit">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>580</y>
+          <width>261</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+font: 16pt &quot;Rockwell&quot;;
+
+     border-style: solid;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+    
+     min-width: 6em;
+     padding: 3px;
+
+
+</string>
+        </property>
+        <property name="text">
+         <string>Edit accounts</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="accounts_delete">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>580</y>
+          <width>261</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+font: 16pt &quot;Rockwell&quot;;
+
+     border-style: solid;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+    
+     min-width: 6em;
+     padding: 3px;
+
+
+</string>
+        </property>
+        <property name="text">
+         <string>Delete accounts</string>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="page_5"/>
      </widget>
     </widget>
@@ -619,8 +690,8 @@ font: 16pt &quot;Rockwell&quot;;
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>70</y>
+        <x>460</x>
+        <y>115</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -657,7 +728,8 @@ font: 16pt &quot;Rockwell&quot;;
        <enum>Qt::StrongFocus</enum>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: white;
+       <string notr="true">QPushButton#Back_2{
+background-color: white;
 
      border-style: solid;
      border-width: 3px;
@@ -667,6 +739,11 @@ font: 16pt &quot;Rockwell&quot;;
 font: 14pt &quot;Rockwell&quot;;
      min-width: 4em;
      padding: 3px;
+}
+
+QPushButton#Back_2::hover{
+	background-color: lightGray;	
+}
 
 </string>
       </property>
@@ -677,11 +754,11 @@ font: 14pt &quot;Rockwell&quot;;
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="setLogin_2">
+     <widget class="QLineEdit" name="setLogin_edit">
       <property name="geometry">
        <rect>
         <x>420</x>
-        <y>200</y>
+        <y>170</y>
         <width>351</width>
         <height>51</height>
        </rect>
@@ -698,6 +775,207 @@ font: 14pt &quot;Rockwell&quot;;
       </property>
       <property name="clearButtonEnabled">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>120</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="set_password_edit">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>245</y>
+        <width>351</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="access_box">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>440</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Access</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="admin_box">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>440</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Admin account</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="set_password_edit_2">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>320</y>
+        <width>351</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="remove_acc">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>550</y>
+        <width>116</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#remove_acc{
+background-color: white;
+
+     border-style: solid;
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+color: red;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton#remove_acc::hover{
+	background-color: lightGray;	
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Delete</string>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="accept">
+      <property name="geometry">
+       <rect>
+        <x>575</x>
+        <y>550</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#accept{
+background-color: white;
+
+     border-style: solid;
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+color: green;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton#accept::hover{
+	background-color: lightGray;	
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Accept</string>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
       </property>
      </widget>
     </widget>
@@ -747,5 +1025,25 @@ font: 14pt &quot;Rockwell&quot;;
  <resources>
   <include location="QtWidgetsApplication0.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>accounts_edit</sender>
+   <signal>clicked()</signal>
+   <receiver>QtWidgetsApplication0Class</receiver>
+   <slot>edit_accounts()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>643</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>422</x>
+     <y>742</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>edit_accounts()</slot>
+ </slots>
 </ui>

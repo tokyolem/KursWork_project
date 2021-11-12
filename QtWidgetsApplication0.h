@@ -24,7 +24,7 @@ private slots:
     void on_pushButton_4_clicked();
     void on_btn_clicked();
     void on_Back_2_clicked();
-
+    
 private:
     Ui::QtWidgetsApplication0Class ui;
     Account account;
