@@ -17,6 +17,8 @@ public :
 	void edit_account_login();
 	void edit_account_access();
 	void edit_account_password();
+	void edit_account_role();
+	void check_access();
 
 private:
 	QWidget* _parent;

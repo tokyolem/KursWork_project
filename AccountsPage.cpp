@@ -16,6 +16,10 @@ AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui
 			edit_account_login();
 			edit_account_access();
 			edit_account_password();
+			check_access();
+			edit_account_role();
+			ui->access_box->update();
+			ui->admin_box->update();
 		});
 }
 
@@ -54,7 +58,6 @@ void AccountsPage::create_table_for_accounts() {
 				ui->label_9->setText(str);
 				ui->setLogin_edit->setText(str);
 				open_edit_account_page();
-				
 			});
 	}
 }
@@ -114,6 +117,24 @@ void AccountsPage::edit_account_password() {
 		}
 	}
 }
+
+void AccountsPage::edit_account_role() {
+	bool is_access = ui->admin_box->isChecked();
+	string str = ui->label_9->text().toStdString();
+
+	accounts_db->update("ROLE", to_string(is_access), "LOGIN='" + str + "'");
+}
+
+void AccountsPage::check_access() {
+	string str = ui->label_9->text().toStdString();
+	if (accounts_db->get_int("ACCESS", str, 4) == 1) {
+		ui->access_box->setEnabled(true);
+	}
+	else {
+
+	}
+}
+
 
 
 
