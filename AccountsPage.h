@@ -9,6 +9,7 @@ class AccountsPage : public QMainWindow
 {
 	Q_OBJECT
 public :
+	AccountsPage();
 	AccountsPage(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQLdb* accounts_db);
 
 	void create_table_for_accounts();
@@ -25,6 +26,5 @@ private:
 	Ui::QtWidgetsApplication0Class* ui;
 	SQLdb* accounts_db;
 	QPushButton* btn;
-	string session_account_login = "";
 };
 

@@ -5,6 +5,8 @@
 
 using namespace std;
 
+AccountsPage::AccountsPage() {};
+
 AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui, SQLdb * accounts_db) 
 	: QMainWindow(parent)
 {
@@ -111,7 +113,7 @@ void AccountsPage::edit_account_password() {
 
 		switch (ret) {
 		case QMessageBox::Ok:
-			ui->stackedWidget->setCurrentWidget(ui->main_first);
+			ui->stackedWidget->setCurrentWidget(ui->page_10);
 		default:
 			return ;
 		}
@@ -134,6 +136,7 @@ void AccountsPage::check_access() {
 
 	}
 }
+
 
 
 

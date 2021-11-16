@@ -88,6 +88,9 @@
      min-width: 10em;
      padding: 6px;</string>
       </property>
+      <property name="cursorPosition">
+       <number>0</number>
+      </property>
       <property name="clearButtonEnabled">
        <bool>true</bool>
       </property>
@@ -149,23 +152,30 @@ color: blue;</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>-1</pointsize>
-        <weight>75</weight>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
         <italic>false</italic>
-        <bold>true</bold>
+        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: white;
-border-style: solid;
-border-width: 2px;
-border-radius: 10px;
-border-color: lightGray;
-font: bold 14px;
-min-width: 10em;
-padding: 6px;
+       <string notr="true">QPushButton{
+background-color: white;
 
-</string>
+     border-style: solid;
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}</string>
       </property>
       <property name="text">
        <string>Log in</string>
@@ -268,7 +278,8 @@ padding: 6px;
        <enum>Qt::StrongFocus</enum>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: white;
+       <string notr="true">QPushButton{
+background-color: white;
 
      border-style: solid;
      border-width: 3px;
@@ -278,6 +289,11 @@ padding: 6px;
 font: 14pt &quot;Rockwell&quot;;
      min-width: 4em;
      padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
 
 </string>
       </property>
@@ -357,7 +373,7 @@ font: 14pt &quot;Rockwell&quot;;
       <property name="geometry">
        <rect>
         <x>470</x>
-        <y>440</y>
+        <y>500</y>
         <width>351</width>
         <height>41</height>
        </rect>
@@ -365,23 +381,29 @@ font: 14pt &quot;Rockwell&quot;;
       <property name="font">
        <font>
         <family>Rockwell</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: white;
+       <string notr="true">QPushButton{
+background-color: white;
 
      border-style: solid;
      border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
-   font: 12pt &quot;Rockwell&quot;;
-     min-width: 10em;
-     padding: 6px;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
 
+QPushButton::hover{
+	background-color: lightGray;	
+}
 </string>
       </property>
       <property name="text">
@@ -417,9 +439,9 @@ font: 14pt &quot;Rockwell&quot;;
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>510</y>
-        <width>351</width>
+        <x>390</x>
+        <y>550</y>
+        <width>511</width>
         <height>31</height>
        </rect>
       </property>
@@ -428,19 +450,6 @@ font: 14pt &quot;Rockwell&quot;;
         <family>Rockwell</family>
         <pointsize>12</pointsize>
        </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>555</y>
-        <width>261</width>
-        <height>31</height>
-       </rect>
       </property>
       <property name="text">
        <string/>
@@ -469,43 +478,28 @@ font: 14pt &quot;Rockwell&quot;;
        <number>0</number>
       </property>
       <widget class="QWidget" name="page_2">
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QLabel" name="label_17">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>50</y>
-          <width>261</width>
-          <height>61</height>
+          <x>5</x>
+          <y>-10</y>
+          <width>271</width>
+          <height>701</height>
          </rect>
         </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-background-color: white;
-
-     border-style: solid;
-     border-width: 3px;
-     border-radius: 10px;
-     border-color: lightGray;
- 
-font: 14pt &quot;Rockwell&quot;;
-     min-width: 4em;
-     padding: 3px;
-}
-
-QPushButton::hover{
-	background-color: lightGray;	
-}</string>
-        </property>
         <property name="text">
-         <string>Manage accounts</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../../Desktop/13.png</pixmap>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_5">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>140</y>
-          <width>261</width>
+          <x>15</x>
+          <y>130</y>
+          <width>251</width>
           <height>61</height>
          </rect>
         </property>
@@ -532,82 +526,66 @@ QPushButton::hover{
          <string>Manage data</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_6">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>230</y>
-          <width>261</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: white;
-font: 16pt &quot;Rockwell&quot;;
-
-     border-style: solid;
-     border-width: 2px;
-     border-radius: 10px;
-     border-color: lightGray;
-    
-     min-width: 6em;
-     padding: 3px;
-</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_7">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>320</y>
-          <width>261</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: white;
-font: 16pt &quot;Rockwell&quot;;
-
-     border-style: solid;
-     border-width: 2px;
-     border-radius: 10px;
-     border-color: lightGray;
-    
-     min-width: 6em;
-     padding: 3px;
-</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="pushButton_8">
         <property name="geometry">
          <rect>
           <x>90</x>
-          <y>590</y>
-          <width>103</width>
+          <y>560</y>
+          <width>116</width>
           <height>41</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white;
-font: 16pt &quot;Rockwell&quot;;
+         <string notr="true">QPushButton{
+background-color: white;
 
      border-style: solid;
-     border-width: 2px;
+     border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
-    
-     min-width: 3em;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
      padding: 3px;
-</string>
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}</string>
         </property>
         <property name="text">
          <string>Log out</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>40</y>
+          <width>251</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: white;
+
+     border-style: solid;
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}</string>
+        </property>
+        <property name="text">
+         <string>Manage accounts</string>
         </property>
        </widget>
       </widget>
@@ -623,63 +601,144 @@ font: 16pt &quot;Rockwell&quot;;
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_4">
+       <widget class="QPushButton" name="accounts_edit_2">
+        <property name="geometry">
+         <rect>
+          <x>1270</x>
+          <y>400</y>
+          <width>261</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: white;
+
+     border-style: solid;
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Add account</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>3</x>
+          <y>3</y>
+          <width>1071</width>
+          <height>671</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../../Desktop/Снимок экрана 2021-11-15 234509.png</pixmap>
+        </property>
+       </widget>
        <widget class="QPushButton" name="accounts_edit">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>580</y>
+          <x>710</x>
+          <y>570</y>
           <width>261</width>
           <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white;
-font: 16pt &quot;Rockwell&quot;;
+         <string notr="true">QPushButton{
+background-color: white;
 
      border-style: solid;
-     border-width: 2px;
+     border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
-    
-     min-width: 6em;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
      padding: 3px;
+}
 
-
+QPushButton::hover{
+	background-color: lightGray;	
+}
 </string>
         </property>
         <property name="text">
-         <string>Edit accounts</string>
+         <string>Add account</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="accounts_delete">
+       <widget class="QLabel" name="label_19">
         <property name="geometry">
          <rect>
-          <x>350</x>
-          <y>580</y>
-          <width>261</width>
-          <height>61</height>
+          <x>25</x>
+          <y>545</y>
+          <width>351</width>
+          <height>91</height>
          </rect>
         </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: white;
-font: 16pt &quot;Rockwell&quot;;
-
-     border-style: solid;
-     border-width: 2px;
-     border-radius: 10px;
-     border-color: lightGray;
-    
-     min-width: 6em;
-     padding: 3px;
-
-
-</string>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../../Desktop/ffffffffffffffffffffffffffffffffffffffffffffffffffffff.png</pixmap>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>580</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Rockwell</family>
+          <pointsize>14</pointsize>
+         </font>
         </property>
         <property name="text">
-         <string>Delete accounts</string>
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>45</x>
+          <y>575</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Rockwell</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="text">
+         <string>You entered as:</string>
         </property>
        </widget>
       </widget>
@@ -687,25 +746,6 @@ font: 16pt &quot;Rockwell&quot;;
      </widget>
     </widget>
     <widget class="QWidget" name="page_10">
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>115</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Rockwell</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Edit account:</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="Back_2">
       <property name="geometry">
        <rect>
@@ -754,11 +794,65 @@ QPushButton#Back_2::hover{
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="setLogin_edit">
+     <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>170</y>
+        <x>320</x>
+        <y>50</y>
+        <width>781</width>
+        <height>621</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../Desktop/Снимок экрана 2021-11-05 011636.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="admin_box">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>435</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Admin account</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="access_box">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>435</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Access</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="set_password_edit">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>240</y>
         <width>351</width>
         <height>51</height>
        </rect>
@@ -780,8 +874,8 @@ QPushButton#Back_2::hover{
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>120</y>
+        <x>650</x>
+        <y>115</y>
         <width>111</width>
         <height>20</height>
        </rect>
@@ -796,11 +890,60 @@ QPushButton#Back_2::hover{
        <string/>
       </property>
      </widget>
-     <widget class="QLineEdit" name="set_password_edit">
+     <widget class="QPushButton" name="accept">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>245</y>
+        <x>625</x>
+        <y>545</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#accept{
+background-color: white;
+
+     border-style: solid;
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+color: green;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton#accept::hover{
+	background-color: lightGray;	
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Accept</string>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="set_password_edit_2">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>315</y>
         <width>351</width>
         <height>51</height>
        </rect>
@@ -819,49 +962,11 @@ QPushButton#Back_2::hover{
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QCheckBox" name="access_box">
+     <widget class="QLineEdit" name="setLogin_edit">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>440</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Rockwell</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Access</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="admin_box">
-      <property name="geometry">
-       <rect>
-        <x>590</x>
-        <y>440</y>
-        <width>191</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Rockwell</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Admin account</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="set_password_edit_2">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>320</y>
+        <x>470</x>
+        <y>165</y>
         <width>351</width>
         <height>51</height>
        </rect>
@@ -883,8 +988,8 @@ QPushButton#Back_2::hover{
      <widget class="QPushButton" name="remove_acc">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>550</y>
+        <x>460</x>
+        <y>545</y>
         <width>116</width>
         <height>51</height>
        </rect>
@@ -929,53 +1034,77 @@ QPushButton#remove_acc::hover{
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="accept">
+     <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>575</x>
-        <y>550</y>
-        <width>201</width>
-        <height>51</height>
+        <x>510</x>
+        <y>110</y>
+        <width>141</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Rockwell</family>
         <pointsize>14</pointsize>
-        <weight>50</weight>
-        <italic>false</italic>
-        <bold>false</bold>
        </font>
       </property>
-      <property name="focusPolicy">
-       <enum>Qt::StrongFocus</enum>
+      <property name="text">
+       <string>Edit account:</string>
       </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton#accept{
-background-color: white;
-
-     border-style: solid;
-     border-width: 3px;
-     border-radius: 10px;
-     border-color: lightGray;
-color: green;
- 
-font: 14pt &quot;Rockwell&quot;;
-     min-width: 4em;
-     padding: 3px;
-}
-
-QPushButton#accept::hover{
-	background-color: lightGray;	
-}
-
-</string>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>165</x>
+        <y>640</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
       </property>
       <property name="text">
-       <string>Accept</string>
+       <string/>
       </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>635</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="text">
+       <string>You log in as:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>489</y>
+        <width>331</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -1025,24 +1154,7 @@ QPushButton#accept::hover{
  <resources>
   <include location="QtWidgetsApplication0.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>accounts_edit</sender>
-   <signal>clicked()</signal>
-   <receiver>QtWidgetsApplication0Class</receiver>
-   <slot>edit_accounts()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>420</x>
-     <y>643</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>422</x>
-     <y>742</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>edit_accounts()</slot>
  </slots>

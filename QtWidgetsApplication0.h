@@ -25,10 +25,13 @@ private slots:
     void on_btn_clicked();
     void on_Back_2_clicked();
     
+    void on_remove_acc_clicked();
+
 private:
     Ui::QtWidgetsApplication0Class ui;
     Account account;
     SQLdb* accounts_db;
     SQLdb* abonent_db;
+    string session_account_login = "";
     SQLdb* sql_db;
 };
