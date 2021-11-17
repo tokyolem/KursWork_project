@@ -1342,6 +1342,25 @@ QPushButton#add_account::hover{
        <string>Add account</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_inf_2">
+      <property name="geometry">
+       <rect>
+        <x>504</x>
+        <y>590</y>
+        <width>271</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

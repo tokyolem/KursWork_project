@@ -149,7 +149,7 @@ void AccountsPage::add_new_account() {
 	Account account;
 	Registration registration(accounts_db, ui);
 	CheckFields checkfields(ui);
-	/*string pass_right = ui->set_repassword_reg->text().toStdString();*/
+	string pass_right = ui->set_repassword_reg->text().toStdString();
 
 	account.id = registration.get_min_nonexist_id();
 	account.login = ui->setLogin_reg_2->text().toStdString();
@@ -159,12 +159,20 @@ void AccountsPage::add_new_account() {
 	account.access = 1;
 	account.role = ui->admin_box_2->isChecked();
 
-	accounts_db->thrustBack({ "'" + account.login + "'",
-							"'" + account.salted_hash_password + "'",
-							"'" + account.salt + "'",
-							to_string(account.role),
-							to_string(account.access),
-							to_string(account.id) });
+	if (pass == pass_right) {
+		accounts_db->thrustBack({ "'" + account.login + "'",
+								"'" + account.salted_hash_password + "'",
+								"'" + account.salt + "'",
+								to_string(account.role),
+								to_string(account.access),
+								to_string(account.id) });
+		ui->label_inf_2->setText("Account has been added!");
+		ui->label_inf_2->setStyleSheet("color: green");
+	}
+	else {
+		ui->label_inf_2->setText("Passwords don't match!");
+		ui->label_inf_2->setStyleSheet("color: red");
+	}
 }
 
 
