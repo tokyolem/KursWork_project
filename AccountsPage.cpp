@@ -7,6 +7,10 @@ using namespace std;
 
 AccountsPage::AccountsPage() {};
 
+AccountsPage::AccountsPage(vector<int>accounts_id) {
+	this->accounts_id = accounts_id;
+}
+
 AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui, SQLdb * accounts_db) 
 	: QMainWindow(parent)
 {
@@ -18,7 +22,6 @@ AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui
 			edit_account_login();
 			edit_account_access();
 			edit_account_password();
-			check_access();
 			edit_account_role();
 			ui->access_box->update();
 			ui->admin_box->update();
@@ -60,6 +63,7 @@ void AccountsPage::create_table_for_accounts() {
 				ui->label_9->setText(str);
 				ui->setLogin_edit->setText(str);
 				open_edit_account_page();
+				check_access();
 			});
 	}
 }
@@ -94,7 +98,10 @@ void AccountsPage::edit_account_password() {
 	string password = ui->set_password_edit->text().toStdString();
 	string re_password = ui->set_password_edit_2->text().toStdString();
 
-	if (password == re_password) {
+	if (password == "") {
+		return;
+	}
+	else if (password == re_password) {
 		string salt = check.get_generated_salt();
 		string hash = check.get_generated_hash(password, salt);
 
@@ -129,12 +136,35 @@ void AccountsPage::edit_account_role() {
 
 void AccountsPage::check_access() {
 	string str = ui->label_9->text().toStdString();
-	if (accounts_db->get_int("ACCESS", str, 4) == 1) {
-		ui->access_box->setEnabled(true);
+	if (accounts_db->get_int("LOGIN", str, 4) == 1) {
+		ui->access_box->setChecked(true);
 	}
 	else {
-
+		ui->access_box->setChecked(false);
 	}
+}
+
+void AccountsPage::add_new_account() {
+	/*bool is_role = ui->admin_box_2->isChecked();*/
+	Account account;
+	Registration registration(accounts_db, ui);
+	CheckFields checkfields(ui);
+	/*string pass_right = ui->set_repassword_reg->text().toStdString();*/
+
+	account.id = registration.get_min_nonexist_id();
+	account.login = ui->setLogin_reg_2->text().toStdString();
+	string pass = ui->set_password_reg->text().toStdString();
+	account.salt = checkfields.get_generated_salt();
+	account.salted_hash_password = checkfields.get_generated_hash(pass, account.salt);
+	account.access = 1;
+	account.role = ui->admin_box_2->isChecked();
+
+	accounts_db->thrustBack({ "'" + account.login + "'",
+							"'" + account.salted_hash_password + "'",
+							"'" + account.salt + "'",
+							to_string(account.role),
+							to_string(account.access),
+							to_string(account.id) });
 }
 
 

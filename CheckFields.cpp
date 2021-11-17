@@ -56,24 +56,24 @@ string CheckFields::get_login(SQLdb* db) {
 		}
 	}
 }
-
-string CheckFields::get_free_login(SQLdb* db) {
-	string input_login = ui->setLoginReg->text().toStdString();
-	while (true) {
-		if (input_login.size() < 4) {
-			ui->label_8->setText("The login must have 4 or more symbols");
-		}
-		else if (!is_all_symbols_and_nums(input_login)) {
-			ui->label_8->setText("The login has ");
-		}
-		if (db->get_text("ID", input_login, 0) != "") {
-			ui->label_8->setText("login");
-		}
-		else {
-			return input_login;
-		}
-	}
-}
+//
+//string CheckFields::get_free_login(SQLdb* db) {
+//	string input_login = ui->setLoginReg->text().toStdString();
+//	while (true) {
+//		if (input_login.size() < 4) {
+//			ui->label_8->setText("The login must have 4 or more symbols");
+//		}
+//		else if (!is_all_symbols_and_nums(input_login)) {
+//			ui->label_8->setText("The login has ");
+//		}
+//		if (db->get_text("ID", input_login, 0) != "") {
+//			ui->label_8->setText("login");
+//		}
+//		else {
+//			return input_login;
+//		}
+//	}
+//}
 
 string CheckFields::get_exists_login(SQLdb* db) {
 	string input_login, account_hash;

@@ -71,7 +71,6 @@ void QtWidgetsApplication0::on_btn_clicked() {
     ui.stackedWidget->setCurrentWidget(ui.main_first);
     ui.stackedWidget->setCurrentWidget(ui.page_10);     
 }
-    
 
 void QtWidgetsApplication0::on_remove_acc_clicked()
 {
@@ -104,4 +103,36 @@ void QtWidgetsApplication0::on_remove_acc_clicked()
 			return;
 		}
 	/*}*/
+}
+
+void QtWidgetsApplication0::on_accounts_edit_clicked()
+{
+    ui.stackedWidget->setCurrentWidget(ui.page_11);
+}
+
+void QtWidgetsApplication0::on_Back_3_clicked()
+{
+    ui.stackedWidget->setCurrentWidget(ui.page);
+}
+
+void QtWidgetsApplication0::on_add_account_clicked()
+{
+	AccountsPage Account(this, &ui, accounts_db);
+	QMessageBox msgBox;
+	msgBox.setText("Are you sure?");
+	msgBox.setIcon(QMessageBox::Information);
+	msgBox.setInformativeText("");
+	msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+	msgBox.setDefaultButton(QMessageBox::Ok);
+	msgBox.setStyleSheet("QMessageBox{border: 2px solid gray; border-width: 2px; border-radius: 10px; border-color: lightGray; font: bold 14px; min-width: 10em; padding: 6px; background-color: rgb(246, 228, 255); }");
+	int ret = msgBox.exec();
+
+	switch (ret) {
+	case QMessageBox::Ok:
+		Account.add_new_account();
+	case QMessageBox::Cancel:
+		ui.stackedWidget->setCurrentWidget(ui.page_11);
+	default:
+		return;
+	}
 }

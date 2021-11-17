@@ -3,6 +3,7 @@
 #include "Users.h"
 #include <QtWidgets/QMainWindow>
 #include "SQLDataBase.h"
+#include <iostream>
 
 
 class AccountsPage : public QMainWindow
@@ -11,6 +12,7 @@ class AccountsPage : public QMainWindow
 public :
 	AccountsPage();
 	AccountsPage(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQLdb* accounts_db);
+	AccountsPage(vector<int>accounts_id);
 
 	void create_table_for_accounts();
 	void remove_accounts();
@@ -20,11 +22,14 @@ public :
 	void edit_account_password();
 	void edit_account_role();
 	void check_access();
+	void add_new_account();
 
 private:
+	
 	QWidget* _parent;
 	Ui::QtWidgetsApplication0Class* ui;
-	SQLdb* accounts_db;
+	SQLdb* accounts_db = nullptr;
 	QPushButton* btn;
+	vector<int>accounts_id;
 };
 

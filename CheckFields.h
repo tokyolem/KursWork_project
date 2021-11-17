@@ -45,7 +45,7 @@ public:
 	//возвращет существующий логин 
 	string get_exists_login(SQLdb* db);
 	//возварщает свободный для регистрации логин 
-	string get_free_login(SQLdb* db);
+	/*string get_free_login(SQLdb* db);*/
 	//возварщает пароль с проверкой ввода на допустимые символы
 	string get_password(string true_hash, string true_salt);
 

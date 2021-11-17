@@ -10,7 +10,7 @@ using namespace std;
 class Registration
 {
 public:
-
+	Registration() {};
 	Registration(SQLdb* sql_db, Ui::QtWidgetsApplication0Class* ui);
 	Registration(vector<int>accounts_id);
 	void begin();

@@ -10,7 +10,7 @@ Registration::Registration(vector<int>accounts_id) {
 }
 
 int Registration::get_min_nonexist_id() {
-	accounts_id = sql_db->get_ints(5);
+accounts_id = sql_db->get_ints(5);
 	int min_nonexistent = 1;
 	if (accounts_id.size() != 0) {
 		for (int i = 0; i < *max_element(accounts_id.begin(), accounts_id.end()), +2; i++) {
@@ -29,7 +29,7 @@ void Registration::begin() {
 	string pass_right = ui->RePassword->text().toStdString();
 
 	account.id = get_min_nonexist_id();
-	account.login = checkFields.get_free_login(sql_db);
+	account.login = ui->setLoginReg->text().toStdString();
 	string pass = ui->setPasswordReg->text().toStdString();
 	account.salt = checkFields.get_generated_salt();
 	account.salted_hash_password = checkFields.get_generated_hash(pass, account.salt);

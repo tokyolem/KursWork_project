@@ -27,6 +27,12 @@ private slots:
     
     void on_remove_acc_clicked();
 
+    void on_accounts_edit_clicked();
+
+    void on_Back_3_clicked();
+
+    void on_add_account_clicked();
+
 private:
     Ui::QtWidgetsApplication0Class ui;
     Account account;
