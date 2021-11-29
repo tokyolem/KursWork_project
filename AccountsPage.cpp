@@ -37,7 +37,7 @@ void AccountsPage::create_table_for_accounts() {
 	QString str;
 	QPushButton* btn;
 
-	const int START_X = 15, START_Y = 10, ADD = 245, ADD_Y = 110;
+	const int START_X = 15, START_Y = 20, ADD = 245, ADD_Y = 110;
 
 	int col = -1;
 	for (int row = 0; row < ids.size(); row++) {
@@ -57,8 +57,8 @@ void AccountsPage::create_table_for_accounts() {
 			btn->setStyleSheet("QPushButton{"
 				"background-color: white; "
 				"border-style: solid;"
-				"border-width: 1px;"
-				"border-radius: 10px;"
+				"border-width: 2px;"
+				"border-radius: 20px;"
 				"border-color: green;"
 				"font: 14pt \"Rockwell\"; "
 				"min-width: 4em;"
@@ -70,8 +70,8 @@ void AccountsPage::create_table_for_accounts() {
 			btn->setStyleSheet("QPushButton{"
 				"background-color: white; "
 				"border-style: solid;"
-				"border-width: 1px;"
-				"border-radius: 10px;"
+				"border-width: 2px;"
+				"border-radius: 20px;"
 				"border-color: red;"
 				"font: 14pt \"Rockwell\"; "
 				"min-width: 4em;"
@@ -81,7 +81,7 @@ void AccountsPage::create_table_for_accounts() {
 		}
 		
 		btn->show();
-		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
+		
 		connect(btn, &QPushButton::clicked, this, 
 			[=]() {
 				ui->label_9->setText(str);
@@ -190,7 +190,6 @@ void AccountsPage::check_role() {
 }
 
 void AccountsPage::add_new_account() {
-	/*bool is_role = ui->admin_box_2->isChecked();*/
 	Account account;
 	Registration registration(accounts_db, ui);
 	CheckFields checkfields(ui);
@@ -240,7 +239,7 @@ void AccountsPage::find_by_login()
 		else {
 			btn = new QPushButton(str + "\n\n(User account)", ui->page_4);
 		}
-		btn->setObjectName("btn_of_accounts");
+		btn->setObjectName("btn_of_accounts_search");
 		if (row % 4 == 0) {
 			col++;
 		}
@@ -249,7 +248,7 @@ void AccountsPage::find_by_login()
 			btn->setStyleSheet("QPushButton{"
 				"background-color: white; "
 				"border-style: solid;"
-				"border-width: 3px;"
+				"border-width: 1px;"
 				"border-radius: 10px;"
 				"border-color: green;"
 				"font: 14pt \"Rockwell\"; "
@@ -262,7 +261,7 @@ void AccountsPage::find_by_login()
 			btn->setStyleSheet("QPushButton{"
 				"background-color: white; "
 				"border-style: solid;"
-				"border-width: 3px;"
+				"border-width: 1px;"
 				"border-radius: 10px;"
 				"border-color: red;"
 				"font: 14pt \"Rockwell\"; "

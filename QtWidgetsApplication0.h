@@ -8,6 +8,7 @@
 #include "Session.h"
 #include "Data.h"
 #include "GartenPage.h"
+#include "GartensInfo.h"
 
 
 class QtWidgetsApplication0 : public QMainWindow
@@ -32,7 +33,6 @@ private slots:
     void on_accounts_edit_clicked();
     void on_Back_3_clicked();
     void on_add_account_clicked();
-    void on_line_edit_hover();
     void on_pushButton_5_clicked();
     void on_add_new_garten_clicked();
     void on_add_account_2_clicked();
@@ -42,7 +42,7 @@ private slots:
 
     void on_search_acc_clicked();
 
-    void on_pushButton_5_pressed();
+    void on_pushButton_10_clicked();
 
 private:
     Ui::QtWidgetsApplication0Class ui;

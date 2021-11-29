@@ -69,6 +69,49 @@ void QtWidgetsApplication0::on_pushButton_8_clicked()
 
 void QtWidgetsApplication0::on_pushButton_4_clicked()
 {
+	ui.pushButton_4->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(180, 155, 255);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"color: rgb(180, 155, 255);"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
+	ui.pushButton_5->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(255, 239, 250);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
+	ui.pushButton_10->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(255, 239, 250);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
     AccountsPage* page = new AccountsPage(this, &ui, accounts_db);
     page->remove_accounts();
     page->create_table_for_accounts();
@@ -110,7 +153,6 @@ void QtWidgetsApplication0::on_remove_acc_clicked()
 		default:
 			return;
 		}
-	/*}*/
 }
 
 void QtWidgetsApplication0::on_accounts_edit_clicked()
@@ -145,18 +187,55 @@ void QtWidgetsApplication0::on_add_account_clicked()
 	}
 }
 
-void QtWidgetsApplication0::on_line_edit_hover()
-{
-	ui.set_password_edit->clear();
-}
-
 void QtWidgetsApplication0::on_pushButton_5_clicked()
 {
+	ui.pushButton_4->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(255, 239, 250);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
+	ui.pushButton_5->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(180, 155, 255);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"color: rgb(180, 155, 255);"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
+	ui.pushButton_10->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(255, 239, 250);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
 
-	GartenPage garten(this, &ui, garten_db);
-	ui.stackedWidget_3->setCurrentWidget(ui.page_5);
-	garten.remove_all_gartens();
-	garten.create_table_for_garten();
+	GartenPage* garten = new GartenPage(this, &ui, garten_db);
+	garten->remove_garten();
+	garten->create_table_for_gartens();
 	
 }
 
@@ -175,8 +254,8 @@ void QtWidgetsApplication0::on_add_account_2_clicked()
 void QtWidgetsApplication0::on_Back_4_clicked()
 {
 	GartenPage garten(this, &ui, garten_db);
-	garten.remove_all_gartens();
-	garten.create_table_for_garten();
+	garten.remove_garten();
+	garten.create_table_for_gartens();
 	ui.stackedWidget->setCurrentWidget(ui.page);
 }
 
@@ -187,12 +266,58 @@ void QtWidgetsApplication0::on_Back_9_clicked()
 
 void QtWidgetsApplication0::on_search_acc_clicked()
 {
-	AccountsPage Account(this, &ui, accounts_db);
-	Account.remove_accounts();
-	Account.find_by_login();
+	AccountsPage* Account = new AccountsPage(this, &ui, accounts_db);
+	Account->remove_accounts();
+	Account->find_by_login();
 }
 
-void QtWidgetsApplication0::on_pushButton_5_pressed()
+void QtWidgetsApplication0::on_pushButton_10_clicked()
 {
+	ui.pushButton_4->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(255, 239, 250);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
+	ui.pushButton_5->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(255, 239, 250);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
+	ui.pushButton_10->setStyleSheet("QPushButton{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-color: rgb(180, 155, 255);"
+		"border-radius: 25px;"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 4em;"
+		"color: rgb(180, 155, 255);"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
 
+	GartensInfo* page = new GartensInfo(this, &ui, garten_db);
+	page->remove_garten();
+	page->create_table_for_gartens();
 }
