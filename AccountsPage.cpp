@@ -5,8 +5,6 @@
 
 using namespace std;
 
-AccountsPage::AccountsPage() {};
-
 AccountsPage::AccountsPage(vector<int>accounts_id) {
 	this->accounts_id = accounts_id;
 }
@@ -25,6 +23,11 @@ AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui
 			edit_account_role();
 			ui->access_box->update();
 			ui->admin_box->update();
+			ui->label_inf_3->setText("Changes have been made!");
+			ui->label_inf_3->setGeometry(495, 489, 361, 31);
+			ui->label_inf_3->setStyleSheet("color: green");
+			remove_accounts();
+			create_table_for_accounts();
 		});
 }
 
@@ -32,29 +35,51 @@ void AccountsPage::create_table_for_accounts() {
 	ui->stackedWidget_3->setCurrentWidget(ui->page_4);
 	vector<int> ids = accounts_db->get_ints(5);
 	QString str;
+	QPushButton* btn;
 
 	const int START_X = 15, START_Y = 10, ADD = 245, ADD_Y = 110;
 
 	int col = -1;
 	for (int row = 0; row < ids.size(); row++) {
 		str = QString::fromStdString(accounts_db->get_text("ID", to_string(ids[row]), 0));
-		btn = new QPushButton(str, ui->page_4);
+		if (accounts_db->get_int("LOGIN", str.toStdString(), 3) == 1) {
+			btn = new QPushButton(str + "\n\n(Admin account)", ui->page_4);
+		}
+		else {
+			btn = new QPushButton(str + "\n\n(User account)", ui->page_4);
+		}
 		btn->setObjectName("btn_of_accounts");
 		if (row % 4 == 0) {
 			col++;
 		}
 		btn->setGeometry(START_X + ADD * (row % 4), START_Y + ADD_Y * col, 235, 100);
-		btn->setStyleSheet("QPushButton{"
-		"background-color: white; "
-		"border-style: solid;"
-		"border-width: 3px;"
-		"border-radius: 10px;"
-		"border-color: lightGray;"
-		"font: 14pt \"Rockwell\"; "
-		"min-width: 4em;"
-		"padding: 3px; }"
-		"QPushButton::hover{"
-		"background-color: lightGray; }" );
+		if (accounts_db->get_int("LOGIN", str.toStdString(), 4)== 1) {
+			btn->setStyleSheet("QPushButton{"
+				"background-color: white; "
+				"border-style: solid;"
+				"border-width: 3px;"
+				"border-radius: 10px;"
+				"border-color: green;"
+				"font: 14pt \"Rockwell\"; "
+				"min-width: 4em;"
+				"padding: 3px; }"
+				"QPushButton::hover{"
+				"background-color: lightGray; }");
+		}
+		else {
+			btn->setStyleSheet("QPushButton{"
+				"background-color: white; "
+				"border-style: solid;"
+				"border-width: 3px;"
+				"border-radius: 10px;"
+				"border-color: red;"
+				"font: 14pt \"Rockwell\"; "
+				"min-width: 4em;"
+				"padding: 3px; }"
+				"QPushButton::hover{"
+				"background-color: lightGray; }");
+		}
+		
 
 		btn->show();
 		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
@@ -64,6 +89,8 @@ void AccountsPage::create_table_for_accounts() {
 				ui->setLogin_edit->setText(str);
 				open_edit_account_page();
 				check_access();
+				check_role();
+				ui->label_inf_3->setText("");
 			});
 	}
 }
@@ -73,7 +100,6 @@ void AccountsPage::remove_accounts() {
 }
 
 void AccountsPage::open_edit_account_page() {
-	ui->stackedWidget->setCurrentWidget(ui->main_first);
 	ui->stackedWidget->setCurrentWidget(ui->page_10);
 }
 
@@ -136,11 +162,31 @@ void AccountsPage::edit_account_role() {
 
 void AccountsPage::check_access() {
 	string str = ui->label_9->text().toStdString();
-	if (accounts_db->get_int("LOGIN", str, 4) == 1) {
+	if (str == "admin") {
+		ui->access_box->setEnabled(false);
+	}
+	else if (accounts_db->get_int("LOGIN", str, 4) == 1) {
+		ui->access_box->setEnabled(true);
 		ui->access_box->setChecked(true);
 	}
 	else {
+		ui->access_box->setEnabled(true);
 		ui->access_box->setChecked(false);
+	}
+}
+
+void AccountsPage::check_role() {
+	string str = ui->label_9->text().toStdString();
+	if (str == "admin") {
+		ui->admin_box->setEnabled(false);
+	}
+	else if (accounts_db->get_int("LOGIN", str, 3) == 1) {
+		ui->admin_box->setEnabled(true);
+		ui->admin_box->setChecked(true);
+	}
+	else {
+		ui->admin_box->setEnabled(true);
+		ui->admin_box->setChecked(false);
 	}
 }
 
@@ -175,6 +221,78 @@ void AccountsPage::add_new_account() {
 	}
 }
 
+void AccountsPage::find_by_login()
+{
+	QString str;
+	vector<int> ids = accounts_db->get_ints(5);
+	string search_accounts = ui->search_line->text().toStdString();
+	string search_true = accounts_db->get_text("LOGIN", search_accounts, 0);
+
+	QPushButton* btn;
+
+	const int START_X = 15, START_Y = 10, ADD = 245, ADD_Y = 110;
+
+	int col = -1;
+	for (int row = 0; row < ids.size(); row++) {
+		str = QString::fromStdString(accounts_db->get_text("ID", to_string(ids[row]), 0));
+		if (accounts_db->get_int("LOGIN", str.toStdString(), 3) == 1) {
+			btn = new QPushButton(str + "\n\n(Admin account)", ui->page_4);
+		}
+		else {
+			btn = new QPushButton(str + "\n\n(User account)", ui->page_4);
+		}
+		btn->setObjectName("btn_of_accounts");
+		if (row % 4 == 0) {
+			col++;
+		}
+		btn->setGeometry(START_X, START_Y, 235, 100);
+		if (accounts_db->get_int("LOGIN", str.toStdString(), 4) == 1) {
+			btn->setStyleSheet("QPushButton{"
+				"background-color: white; "
+				"border-style: solid;"
+				"border-width: 3px;"
+				"border-radius: 10px;"
+				"border-color: green;"
+				"font: 14pt \"Rockwell\"; "
+				"min-width: 4em;"
+				"padding: 3px; }"
+				"QPushButton::hover{"
+				"background-color: lightGray; }");
+		}
+		else {
+			btn->setStyleSheet("QPushButton{"
+				"background-color: white; "
+				"border-style: solid;"
+				"border-width: 3px;"
+				"border-radius: 10px;"
+				"border-color: red;"
+				"font: 14pt \"Rockwell\"; "
+				"min-width: 4em;"
+				"padding: 3px; }"
+				"QPushButton::hover{"
+				"background-color: lightGray; }");
+		}
+
+		if (search_true == str.toStdString()) {
+			btn->show();
+		}
+		else {
+			
+		}
+		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
+		connect(btn, &QPushButton::clicked, this,
+			[=]() {
+				ui->label_9->setText(str);
+				ui->setLogin_edit->setText(str);
+				open_edit_account_page();
+				check_access();
+				check_role();
+				ui->label_inf_3->setText("");
+			});
+	}
+
+
+}
 
 
 

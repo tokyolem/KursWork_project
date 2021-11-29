@@ -55,12 +55,15 @@
       <property name="styleSheet">
        <string notr="true">background-color: white;
      border: 2px solid gray;
-     border-width: 2px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
      min-width: 10em;
      padding: 6px;</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
       <property name="echoMode">
        <enum>QLineEdit::Password</enum>
@@ -79,14 +82,24 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: white;
+       <string notr="true">QLineEdit{
+	
+	background-color: white;
      border: 2px solid gray;
-     border-width: 2px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
      min-width: 10em;
-     padding: 6px;</string>
+     padding: 6px;
+
+}
+QLineEdit::hover{
+text(&quot;&quot;);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
       <property name="cursorPosition">
        <number>0</number>
@@ -127,6 +140,7 @@
        <font>
         <family>Rockwell</family>
         <pointsize>12</pointsize>
+        <italic>true</italic>
        </font>
       </property>
       <property name="cursor">
@@ -164,7 +178,7 @@ color: blue;</string>
 background-color: white;
 
      border-style: solid;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
  
@@ -251,7 +265,7 @@ QPushButton::hover{
        </font>
       </property>
       <property name="text">
-       <string>Log in</string>
+       <string>Log in </string>
       </property>
      </widget>
     </widget>
@@ -282,7 +296,7 @@ QPushButton::hover{
 background-color: white;
 
      border-style: solid;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
  
@@ -307,7 +321,7 @@ QPushButton::hover{
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>610</x>
         <y>60</y>
         <width>821</width>
         <height>611</height>
@@ -323,7 +337,7 @@ QPushButton::hover{
      <widget class="QLineEdit" name="setPasswordReg">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>760</x>
         <y>290</y>
         <width>351</width>
         <height>51</height>
@@ -332,7 +346,7 @@ QPushButton::hover{
       <property name="styleSheet">
        <string notr="true">background-color: white;
      border: 2px solid gray;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
@@ -349,7 +363,7 @@ QPushButton::hover{
      <widget class="QLineEdit" name="setLoginReg">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>760</x>
         <y>210</y>
         <width>351</width>
         <height>51</height>
@@ -358,12 +372,13 @@ QPushButton::hover{
       <property name="styleSheet">
        <string notr="true">background-color: white;
      border: 3px solid gray;
-     border-width: 2px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
      min-width: 10em;
-     padding: 6px;</string>
+     padding: 6px;
+</string>
       </property>
       <property name="clearButtonEnabled">
        <bool>true</bool>
@@ -372,7 +387,7 @@ QPushButton::hover{
      <widget class="QPushButton" name="Register_begin">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>760</x>
         <y>500</y>
         <width>351</width>
         <height>41</height>
@@ -392,9 +407,10 @@ QPushButton::hover{
 background-color: white;
 
      border-style: solid;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
+	color: green;
  
 font: 14pt &quot;Rockwell&quot;;
      min-width: 4em;
@@ -413,7 +429,7 @@ QPushButton::hover{
      <widget class="QLineEdit" name="RePassword">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>760</x>
         <y>370</y>
         <width>351</width>
         <height>51</height>
@@ -422,7 +438,7 @@ QPushButton::hover{
       <property name="styleSheet">
        <string notr="true">background-color: white;
      border: 2px solid gray;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
@@ -439,8 +455,8 @@ QPushButton::hover{
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>550</y>
+        <x>680</x>
+        <y>560</y>
         <width>511</width>
         <height>31</height>
        </rect>
@@ -453,6 +469,41 @@ QPushButton::hover{
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>800</x>
+        <y>130</y>
+        <width>271</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Registration's page</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_60">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>170</y>
+        <width>361</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../../../Downloads/rounded-in-photoretrica (1).png</pixmap>
       </property>
      </widget>
     </widget>
@@ -478,36 +529,19 @@ QPushButton::hover{
        <number>0</number>
       </property>
       <widget class="QWidget" name="page_2">
-       <widget class="QLabel" name="label_17">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>-10</y>
-          <width>271</width>
-          <height>701</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../Desktop/13.png</pixmap>
-        </property>
-       </widget>
        <widget class="QPushButton" name="pushButton_5">
         <property name="geometry">
          <rect>
-          <x>15</x>
-          <y>130</y>
-          <width>251</width>
-          <height>61</height>
+          <x>0</x>
+          <y>100</y>
+          <width>291</width>
+          <height>91</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
-background-color: white;
+background-color: rgb(255, 254, 234);
 
-     border-style: solid;
      border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
@@ -529,17 +563,18 @@ QPushButton::hover{
        <widget class="QPushButton" name="pushButton_8">
         <property name="geometry">
          <rect>
-          <x>90</x>
-          <y>560</y>
-          <width>116</width>
-          <height>41</height>
+          <x>0</x>
+          <y>600</y>
+          <width>281</width>
+          <height>81</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
-background-color: white;
+	color: rgb(255, 11, 15);
+background-color: rgb(255, 254, 234);
 
-     border-style: solid;
+    
      border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
@@ -560,17 +595,17 @@ QPushButton::hover{
        <widget class="QPushButton" name="pushButton_4">
         <property name="geometry">
          <rect>
-          <x>15</x>
-          <y>40</y>
-          <width>251</width>
-          <height>61</height>
+          <x>0</x>
+          <y>0</y>
+          <width>301</width>
+          <height>101</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
-background-color: white;
+background-color: rgb(255, 254, 234);
 
-     border-style: solid;
+     
      border-width: 3px;
      border-radius: 10px;
      border-color: lightGray;
@@ -588,6 +623,89 @@ QPushButton::hover{
          <string>Manage accounts</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>190</y>
+          <width>291</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: rgb(255, 254, 234);
+
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Information of Gartens</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>550</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Rockwell</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>25</x>
+          <y>545</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Rockwell</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>You entered as:</string>
+        </property>
+       </widget>
+       <zorder>pushButton_5</zorder>
+       <zorder>pushButton_8</zorder>
+       <zorder>pushButton_4</zorder>
+       <zorder>pushButton_10</zorder>
+       <zorder>label_11</zorder>
+       <zorder>label_20</zorder>
+       <zorder>label_18</zorder>
+       <zorder>label_20</zorder>
       </widget>
       <widget class="QWidget" name="page_3"/>
      </widget>
@@ -636,28 +754,101 @@ QPushButton::hover{
          <string>Add account</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_11">
-        <property name="geometry">
-         <rect>
-          <x>3</x>
-          <y>3</y>
-          <width>1071</width>
-          <height>671</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../Desktop/Снимок экрана 2021-11-15 234509.png</pixmap>
-        </property>
-       </widget>
        <widget class="QPushButton" name="accounts_edit">
         <property name="geometry">
          <rect>
-          <x>710</x>
+          <x>720</x>
           <y>570</y>
           <width>261</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: white;
+
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 1px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Add account</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="search_line">
+        <property name="geometry">
+         <rect>
+          <x>32</x>
+          <y>570</y>
+          <width>341</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="search_acc">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>580</y>
+          <width>108</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: white;
+
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 1px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Search</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_5">
+       <widget class="QPushButton" name="add_new_garten">
+        <property name="geometry">
+         <rect>
+          <x>730</x>
+          <y>570</y>
+          <width>251</width>
           <height>61</height>
          </rect>
         </property>
@@ -677,72 +868,13 @@ font: 14pt &quot;Rockwell&quot;;
 
 QPushButton::hover{
 	background-color: lightGray;	
-}
-</string>
+}</string>
         </property>
         <property name="text">
-         <string>Add account</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_19">
-        <property name="geometry">
-         <rect>
-          <x>25</x>
-          <y>545</y>
-          <width>351</width>
-          <height>91</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../../../Desktop/ffffffffffffffffffffffffffffffffffffffffffffffffffffff.png</pixmap>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_18">
-        <property name="geometry">
-         <rect>
-          <x>210</x>
-          <y>580</y>
-          <width>121</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Rockwell</family>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_20">
-        <property name="geometry">
-         <rect>
-          <x>45</x>
-          <y>575</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Rockwell</family>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="text">
-         <string>You entered as:</string>
+         <string>Add garten</string>
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="page_5"/>
      </widget>
     </widget>
     <widget class="QWidget" name="page_10">
@@ -772,7 +904,7 @@ QPushButton::hover{
 background-color: white;
 
      border-style: solid;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
  
@@ -860,12 +992,13 @@ QPushButton#Back_2::hover{
       <property name="styleSheet">
        <string notr="true">background-color: white;
      border: 2px solid gray;
-     border-width: 2px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
      min-width: 10em;
-     padding: 6px;</string>
+     padding: 6px;
+color: lightGray</string>
       </property>
       <property name="clearButtonEnabled">
        <bool>true</bool>
@@ -916,7 +1049,7 @@ QPushButton#Back_2::hover{
 background-color: white;
 
      border-style: solid;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
 color: green;
@@ -951,7 +1084,7 @@ QPushButton#accept::hover{
       <property name="styleSheet">
        <string notr="true">background-color: white;
      border: 2px solid gray;
-     border-width: 2px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
@@ -974,7 +1107,7 @@ QPushButton#accept::hover{
       <property name="styleSheet">
        <string notr="true">background-color: white;
      border: 2px solid gray;
-     border-width: 2px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
      font: bold 14px;
@@ -1011,7 +1144,7 @@ QPushButton#accept::hover{
 background-color: white;
 
      border-style: solid;
-     border-width: 3px;
+     border-width: 1px;
      border-radius: 10px;
      border-color: lightGray;
 color: red;
@@ -1107,6 +1240,25 @@ QPushButton#remove_acc::hover{
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_inf_3">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>489</y>
+        <width>361</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="user_menu">
      <widget class="QStackedWidget" name="stackedWidget_4">
@@ -1121,7 +1273,71 @@ QPushButton#remove_acc::hover{
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 254, 234);</string>
       </property>
-      <widget class="QWidget" name="page_6"/>
+      <widget class="QWidget" name="page_6">
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>590</y>
+          <width>281</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	color: rgb(255, 11, 15);
+background-color: rgb(255, 254, 234);
+
+    
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}</string>
+        </property>
+        <property name="text">
+         <string>Log out</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_12">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>291</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: rgb(255, 254, 234);
+
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Information of Gartens</string>
+        </property>
+       </widget>
+      </widget>
       <widget class="QWidget" name="page_7"/>
      </widget>
      <widget class="QStackedWidget" name="stackedWidget_5">
@@ -1361,6 +1577,822 @@ QPushButton#add_account::hover{
        <string/>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="page_12">
+     <widget class="QLineEdit" name="number_of_garten">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>200</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="quanity_of_group">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="quanity_of_places">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>360</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="affiliation">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>440</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="information">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>201</y>
+        <width>431</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="certain_place">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>520</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="free_places">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>600</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="add_account_2">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>400</y>
+        <width>311</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton#add_account_2{
+color: rgb(74, 202, 93);
+background-color: white;
+
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton#add_account_2::hover{
+	background-color: lightGray;	
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Add new garten</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Back_4">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>116</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+background-color: white;
+
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>180</y>
+        <width>181</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Garten's number</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>244</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Quanity of group</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>328</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Quanity of places</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>420</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Affiliation</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>170</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Information of garten</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>488</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Certain places</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>563</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Free places</string>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton">
+      <property name="geometry">
+       <rect>
+        <x>800</x>
+        <y>340</y>
+        <width>34</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+color: rgb(74, 202, 93);
+background-color: white;
+
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 1em;
+     padding: 3px;
+
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+</string>
+      </property>
+      <property name="text">
+       <string>...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>60</y>
+        <width>561</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Page of add information of new garten</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_13">
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>60</y>
+        <width>251</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_59">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>400</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Affiliation</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_53">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>543</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Free places</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_55">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>310</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Quanity of places</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="quanity_of_group_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>260</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="certain_place_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>500</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_58">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>230</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Quanity of group</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="quanity_of_places_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>340</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="affiliation_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>420</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_57">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>160</y>
+        <width>181</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Garten's number</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="number_of_garten_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>180</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_54">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>468</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Certain places</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="free_places_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>580</y>
+        <width>351</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Back_9">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>70</y>
+        <width>116</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+background-color: white;
+
+     border-style: solid;
+     border-width: 3px;
+     border-radius: 10px;
+     border-color: lightGray;
+ 
+font: 14pt &quot;Rockwell&quot;;
+     min-width: 4em;
+     padding: 3px;
+}
+
+QPushButton::hover{
+	background-color: lightGray;	
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="information_3">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>187</y>
+        <width>581</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+     border: 2px solid gray;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: lightGray;
+     font: bold 14px;
+     min-width: 10em;
+     padding: 6px;</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_56">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>155</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Rockwell</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Information of garten</string>
+      </property>
+     </widget>
+     <zorder>label_26</zorder>
+     <zorder>quanity_of_group_2</zorder>
+     <zorder>quanity_of_places_2</zorder>
+     <zorder>number_of_garten_2</zorder>
+     <zorder>information_2</zorder>
+     <zorder>certain_place_2</zorder>
+     <zorder>free_places_2</zorder>
+     <zorder>affiliation_2</zorder>
+     <zorder>Back_5</zorder>
+     <zorder>label_59</zorder>
+     <zorder>label_53</zorder>
+     <zorder>label_55</zorder>
+     <zorder>quanity_of_group_3</zorder>
+     <zorder>certain_place_3</zorder>
+     <zorder>label_58</zorder>
+     <zorder>quanity_of_places_3</zorder>
+     <zorder>affiliation_3</zorder>
+     <zorder>label_57</zorder>
+     <zorder>number_of_garten_3</zorder>
+     <zorder>label_54</zorder>
+     <zorder>free_places_3</zorder>
+     <zorder>Back_9</zorder>
+     <zorder>information_3</zorder>
+     <zorder>label_56</zorder>
     </widget>
    </widget>
   </widget>

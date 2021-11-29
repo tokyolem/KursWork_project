@@ -10,7 +10,6 @@ class AccountsPage : public QMainWindow
 {
 	Q_OBJECT
 public :
-	AccountsPage();
 	AccountsPage(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQLdb* accounts_db);
 	AccountsPage(vector<int>accounts_id);
 
@@ -23,13 +22,15 @@ public :
 	void edit_account_role();
 	void check_access();
 	void add_new_account();
+	void check_role();
+	void find_by_login();
+	
 
 private:
 	
 	QWidget* _parent;
 	Ui::QtWidgetsApplication0Class* ui;
 	SQLdb* accounts_db = nullptr;
-	QPushButton* btn;
 	vector<int>accounts_id;
 };
 

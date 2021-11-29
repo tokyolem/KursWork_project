@@ -21,9 +21,9 @@ public:
 
 	int get_int(string weald, string wealdp, int value);
 	vector<int> get_ints(int value);
+	vector<string> get_strings(int num_of_value);
 	string get_text(string weald, string wealdp, int value);
 	
-
 	void thrustBack(vector<string> weald);
 	void update(string weald, string value, string text);
 	void delWeald(string rule);

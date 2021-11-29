@@ -11,6 +11,10 @@ void QtWidgetsApplication0::set_account_db(SQLdb* accounts_db) {
     this->accounts_db = accounts_db;
 }
 
+void QtWidgetsApplication0::set_garten_db(SQLdb* garten_db) {
+	this->garten_db = garten_db;
+}
+
 void QtWidgetsApplication0::on_Register_clicked()
 {
     ui.stackedWidget->setCurrentWidget(ui.main_second);
@@ -20,7 +24,7 @@ void QtWidgetsApplication0::on_Log_in_clicked()
 {
     AccountsPage* page = new AccountsPage(this, &ui, accounts_db);
     page->remove_accounts();
-    Session session(accounts_db, abonent_db, &ui);
+    Session session(accounts_db, garten_db, &ui);
     int role = -1;
     Authorization authorization(accounts_db, &ui);
     role = authorization.begin();
@@ -45,6 +49,9 @@ void QtWidgetsApplication0::on_Back_clicked()
 
 void QtWidgetsApplication0::on_Back_2_clicked()
 {
+	AccountsPage* acc = new AccountsPage(this, &ui, accounts_db);
+	acc->remove_accounts();
+	acc->create_table_for_accounts();
     ui.stackedWidget->setCurrentWidget(ui.page);
     ui.page->update();
 }
@@ -135,4 +142,51 @@ void QtWidgetsApplication0::on_add_account_clicked()
 	default:
 		return;
 	}
+}
+
+void QtWidgetsApplication0::on_line_edit_hover()
+{
+	ui.set_password_edit->clear();
+}
+
+void QtWidgetsApplication0::on_pushButton_5_clicked()
+{
+
+	GartenPage garten(this, &ui, garten_db);
+	ui.stackedWidget_3->setCurrentWidget(ui.page_5);
+	garten.remove_all_gartens();
+	garten.create_table_for_garten();
+	
+}
+
+void QtWidgetsApplication0::on_add_new_garten_clicked()
+{
+    ui.stackedWidget->setCurrentWidget(ui.page_12);
+	
+}
+
+void QtWidgetsApplication0::on_add_account_2_clicked()
+{
+	GartenPage garten(this, &ui, garten_db);
+	garten.add_new_garten();
+}
+
+void QtWidgetsApplication0::on_Back_4_clicked()
+{
+	GartenPage garten(this, &ui, garten_db);
+	garten.remove_all_gartens();
+	garten.create_table_for_garten();
+	ui.stackedWidget->setCurrentWidget(ui.page);
+}
+
+void QtWidgetsApplication0::on_Back_9_clicked()
+{
+	ui.stackedWidget->setCurrentWidget(ui.page);
+}
+
+void QtWidgetsApplication0::on_search_acc_clicked()
+{
+	AccountsPage Account(this, &ui, accounts_db);
+	Account.remove_accounts();
+	Account.find_by_login();
 }

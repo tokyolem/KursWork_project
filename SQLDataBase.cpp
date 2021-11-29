@@ -41,6 +41,8 @@ void SQLdb::close_SQL() {
 }
 
 
+
+
 void SQLdb::thrustBack(vector<string> field) {
 	string sql = get_thrustback(field);
 	get_sql_command_make(sql);
@@ -105,6 +107,21 @@ vector<int> SQLdb::get_ints(int num_of_value) {
 
 	sqlite3_finalize(stmt);
 	return value;
+}
+
+vector<string> SQLdb::get_strings(int num_of_value)
+{
+	string sql = "SELECT * FROM " + NAME_OF_DATABASE + " ;";
+	sqlite3_prepare_v2(dataBase, sql.c_str(), -1, &stmt, NULL);
+
+	int rc = 0;
+	vector<string> text;
+	while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
+		text.push_back(reinterpret_cast<const char*>(sqlite3_column_text(stmt, num_of_value)));
+	}
+
+	sqlite3_finalize(stmt);
+	return text;
 }
 
 

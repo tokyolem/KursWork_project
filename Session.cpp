@@ -3,7 +3,7 @@
 
 Session::Session(SQLdb* accounts_db, SQLdb* abonent_db, Ui::QtWidgetsApplication0Class* ui) {
 	this->accounts_db = accounts_db;
-	this->abonent_db = abonent_db;
+	this->garten_db = abonent_db;
 	this->ui = ui;
 }
 

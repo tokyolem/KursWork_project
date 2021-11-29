@@ -87,6 +87,7 @@
     <ClCompile Include="AccountsPage.cpp" />
     <ClCompile Include="Authorization.cpp" />
     <ClCompile Include="CheckFields.cpp" />
+    <ClCompile Include="GartenPage.cpp" />
     <ClCompile Include="Registration.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SHA256.cpp" />
@@ -102,6 +103,8 @@
     <QtMoc Include="AccountsPage.h" />
     <ClInclude Include="Authorization.h" />
     <ClInclude Include="CheckFields.h" />
+    <ClInclude Include="Data.h" />
+    <QtMoc Include="GartenPage.h" />
     <ClInclude Include="Registration.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SHA256.h" />
