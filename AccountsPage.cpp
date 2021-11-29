@@ -53,11 +53,11 @@ void AccountsPage::create_table_for_accounts() {
 			col++;
 		}
 		btn->setGeometry(START_X + ADD * (row % 4), START_Y + ADD_Y * col, 235, 100);
-		if (accounts_db->get_int("LOGIN", str.toStdString(), 4)== 1) {
+		if (accounts_db->get_int("LOGIN", str.toStdString(), 4) == 1) {
 			btn->setStyleSheet("QPushButton{"
 				"background-color: white; "
 				"border-style: solid;"
-				"border-width: 3px;"
+				"border-width: 1px;"
 				"border-radius: 10px;"
 				"border-color: green;"
 				"font: 14pt \"Rockwell\"; "
@@ -70,7 +70,7 @@ void AccountsPage::create_table_for_accounts() {
 			btn->setStyleSheet("QPushButton{"
 				"background-color: white; "
 				"border-style: solid;"
-				"border-width: 3px;"
+				"border-width: 1px;"
 				"border-radius: 10px;"
 				"border-color: red;"
 				"font: 14pt \"Rockwell\"; "
@@ -80,7 +80,6 @@ void AccountsPage::create_table_for_accounts() {
 				"background-color: lightGray; }");
 		}
 		
-
 		btn->show();
 		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
 		connect(btn, &QPushButton::clicked, this, 
@@ -279,7 +278,6 @@ void AccountsPage::find_by_login()
 		else {
 			
 		}
-		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
 		connect(btn, &QPushButton::clicked, this,
 			[=]() {
 				ui->label_9->setText(str);

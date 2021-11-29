@@ -81,6 +81,7 @@ void QtWidgetsApplication0::on_btn_clicked() {
 
 void QtWidgetsApplication0::on_remove_acc_clicked()
 {
+	QString str1 = ui.label_9->text();
 	string str = ui.label_14->text().toStdString();
 	string field_for_delete = ui.label_9->text().toStdString();
 
@@ -92,7 +93,7 @@ void QtWidgetsApplication0::on_remove_acc_clicked()
 	//}
 	//else {
 		QMessageBox msgBox;
-		msgBox.setText("Are you sure?");
+		msgBox.setText("Do you really want to delete \n" + str1 + "?");
 		msgBox.setIcon(QMessageBox::Information);
 		msgBox.setInformativeText("");
 		msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
@@ -189,4 +190,9 @@ void QtWidgetsApplication0::on_search_acc_clicked()
 	AccountsPage Account(this, &ui, accounts_db);
 	Account.remove_accounts();
 	Account.find_by_login();
+}
+
+void QtWidgetsApplication0::on_pushButton_5_pressed()
+{
+
 }

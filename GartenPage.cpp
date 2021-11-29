@@ -1,5 +1,7 @@
 #include "GartenPage.h"
 
+using namespace std;
+
 GartenPage::GartenPage(vector<string>garten_id) {
 	this->num = garten_id;
 }
@@ -16,25 +18,23 @@ void GartenPage::create_table_for_garten() {
 	ui->stackedWidget_3->setCurrentWidget(ui->page_5);
 	vector<string> ids = garten_db->get_strings(0);
 	QString str;
-	QPushButton* btn;
 
 	const int START_X = 15, START_Y = 10, ADD = 334, ADD_Y = 265;
-
-	int col = -1;
 	
+	int col = -1;
 	for (int row = 0; row < ids.size(); row++) {
 		str = QString::fromStdString(garten_db->get_text("NUMBER", ids[row], 0));
-		btn = new QPushButton(str, ui->page_5);
-		btn->setObjectName("btn_of_gartens");
+		QPushButton* button = new QPushButton(str, ui->page_5);
+		button->setObjectName("btn_of_gartens");
 		if (row % 3 == 0)
 		{
 			col++;
 		}
-		btn->setGeometry(START_X + ADD* (row % 3), START_Y + ADD_Y * col, 300, 235);
-		btn->setStyleSheet("QPushButton{"
+		button->setGeometry(START_X + ADD* (row % 3), START_Y + ADD_Y * col, 300, 235);
+		button->setStyleSheet("QPushButton{"
 			"background-color: white; "
 			"border-style: solid;"
-			"border-width: 3px;"
+			"border-width: 1px;"
 			"border-radius: 10px;"
 			"border-color: lightGray;"
 			"font: 14pt \"Rockwell\"; "
@@ -43,13 +43,13 @@ void GartenPage::create_table_for_garten() {
 			"QPushButton::hover{"
 			"background-color: lightGray; }");
 
-		btn->show();
+		button->show();
 		
-		connect(btn, SIGNAL(clicked()), this, SLOT(open_edit_gartens_page()));
-		/*connect(btn, &QPushButton::clicked, this ,
+		/*connect(button, SIGNAL(clicked()), this, SLOT(open_edit_gartens_page()));*/
+		connect(button, &QPushButton::clicked, this,
 			[=]() {
-				open_edit_gartens_page();
-			});*/
+				open_edit_gartens_page(garten);
+			});
 	}
 }
 
@@ -79,6 +79,5 @@ void GartenPage::remove_all_gartens() {
 
 void GartenPage::open_edit_gartens_page()
 {
-	
-	/*ui->stackedWidget->setCurrentWidget(ui->page_13);*/
+	ui->stackedWidget->setCurrentWidget(ui->page_13);
 }

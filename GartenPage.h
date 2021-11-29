@@ -19,7 +19,6 @@ public:
 	void open_edit_gartens_page();
 
 private:
-	QPushButton* btn;
 	QWidget* _parent;
 	Ui::QtWidgetsApplication0Class* ui;
 	SQLdb* garten_db = nullptr;

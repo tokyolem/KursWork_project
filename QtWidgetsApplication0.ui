@@ -698,14 +698,6 @@ QPushButton::hover{
          <string>You entered as:</string>
         </property>
        </widget>
-       <zorder>pushButton_5</zorder>
-       <zorder>pushButton_8</zorder>
-       <zorder>pushButton_4</zorder>
-       <zorder>pushButton_10</zorder>
-       <zorder>label_11</zorder>
-       <zorder>label_20</zorder>
-       <zorder>label_18</zorder>
-       <zorder>label_20</zorder>
       </widget>
       <widget class="QWidget" name="page_3"/>
      </widget>
@@ -2369,30 +2361,6 @@ QPushButton::hover{
        <string>Information of garten</string>
       </property>
      </widget>
-     <zorder>label_26</zorder>
-     <zorder>quanity_of_group_2</zorder>
-     <zorder>quanity_of_places_2</zorder>
-     <zorder>number_of_garten_2</zorder>
-     <zorder>information_2</zorder>
-     <zorder>certain_place_2</zorder>
-     <zorder>free_places_2</zorder>
-     <zorder>affiliation_2</zorder>
-     <zorder>Back_5</zorder>
-     <zorder>label_59</zorder>
-     <zorder>label_53</zorder>
-     <zorder>label_55</zorder>
-     <zorder>quanity_of_group_3</zorder>
-     <zorder>certain_place_3</zorder>
-     <zorder>label_58</zorder>
-     <zorder>quanity_of_places_3</zorder>
-     <zorder>affiliation_3</zorder>
-     <zorder>label_57</zorder>
-     <zorder>number_of_garten_3</zorder>
-     <zorder>label_54</zorder>
-     <zorder>free_places_3</zorder>
-     <zorder>Back_9</zorder>
-     <zorder>information_3</zorder>
-     <zorder>label_56</zorder>
     </widget>
    </widget>
   </widget>

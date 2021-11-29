@@ -40,9 +40,6 @@ void SQLdb::close_SQL() {
 	}
 }
 
-
-
-
 void SQLdb::thrustBack(vector<string> field) {
 	string sql = get_thrustback(field);
 	get_sql_command_make(sql);
@@ -155,7 +152,6 @@ bool SQLdb::get_sql_command_make(string sql) {
 
 int SQLdb::get_sum(string column_name, string rule) {
 	string sql = "SELECT SUM( " + column_name + " ) FROM " + NAME_OF_DATABASE + rule + ";";
-
 
 	sqlite3_prepare_v2(dataBase, sql.c_str(), -1, &stmt, NULL);
 

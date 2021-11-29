@@ -42,6 +42,8 @@ private slots:
 
     void on_search_acc_clicked();
 
+    void on_pushButton_5_pressed();
+
 private:
     Ui::QtWidgetsApplication0Class ui;
     Account account;
