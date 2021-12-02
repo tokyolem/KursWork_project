@@ -55,29 +55,35 @@ void AccountsPage::create_table_for_accounts() {
 		btn->setGeometry(START_X + ADD * (row % 4), START_Y + ADD_Y * col, 235, 100);
 		if (accounts_db->get_int("LOGIN", str.toStdString(), 4) == 1) {
 			btn->setStyleSheet("QPushButton{"
-				"background-color: white; "
+				"background-color: rgb(255, 236, 220);"
 				"border-style: solid;"
-				"border-width: 2px;"
-				"border-radius: 20px;"
+				"border-width: 3px;"
 				"border-color: green;"
-				"font: 14pt \"Rockwell\"; "
+				"border-radius: 25px;"
+				"font: 14pt \"Rockwell\";"
 				"min-width: 4em;"
 				"padding: 3px; }"
 				"QPushButton::hover{"
-				"background-color: lightGray; }");
+				"background-color: rgb(255, 239, 250);"
+				"border-style: solid;"
+				"border-color: rgb(180, 155, 255);"
+				"color: rgb(180, 155, 255); }");
 		}
 		else {
 			btn->setStyleSheet("QPushButton{"
-				"background-color: white; "
+				"background-color: rgb(255, 236, 220);"
 				"border-style: solid;"
-				"border-width: 2px;"
-				"border-radius: 20px;"
+				"border-width: 3px;"
 				"border-color: red;"
-				"font: 14pt \"Rockwell\"; "
+				"border-radius: 25px;"
+				"font: 14pt \"Rockwell\";"
 				"min-width: 4em;"
 				"padding: 3px; }"
 				"QPushButton::hover{"
-				"background-color: lightGray; }");
+				"background-color: rgb(255, 239, 250);"
+				"border-style: solid;"
+				"border-color: rgb(180, 155, 255);"
+				"color: rgb(180, 155, 255); }");
 		}
 		
 		btn->show();
@@ -90,6 +96,8 @@ void AccountsPage::create_table_for_accounts() {
 				check_access();
 				check_role();
 				ui->label_inf_3->setText("");
+				ui->set_password_edit->clear();
+				ui->set_password_edit_2->clear();
 			});
 	}
 }
@@ -136,11 +144,31 @@ void AccountsPage::edit_account_password() {
 	else {
 		QMessageBox msgBox;
 		msgBox.setText("Passwords don't match!");
-		msgBox.setIcon(QMessageBox::Information);
-		msgBox.setInformativeText("");
+		msgBox.setWindowIcon(QPixmap("time_management_tasks_to_do_list_planning_icon_188710.ico"));
+		msgBox.setWindowTitle("Confirm menu!");
+		msgBox.setInformativeText("Are you sure?");
 		msgBox.setStandardButtons(QMessageBox::Ok);
 		msgBox.setDefaultButton(QMessageBox::Ok);
-		msgBox.setStyleSheet("QMessageBox{border: 2px solid gray; border-width: 2px; border-radius: 10px; border-color: lightGray; font: bold 14px; min-width: 10em; padding: 6px; background-color: rgb(246, 228, 255); }");
+		msgBox.setStyleSheet("QMessageBox {"
+			"border-style: solid;"
+			"border-color: rgb(85,0,0);"
+			"background-color: rgb(255, 236, 220);"
+			"font: 12pt \"Rockwell\"; }"
+			"QPushButton {"
+			"background-color: rgb(255, 236, 220);"
+			"border-style: solid;"
+			"border-width: 3px;"
+			"border-radius: 15px;"
+			"border-color: rgb(85, 0, 0);"
+			"color: rgb(85, 0, 0);"
+			"font: 14pt \"Rockwell\"; "
+			"min-width: 4em;"
+			"padding: 3px; }"
+			"QPushButton::hover{"
+			"background-color: rgb(255, 239, 250);"
+			"border-style: solid;"
+			"border-color: rgb(180, 155, 255);"
+			"color: rgb(180, 155, 255); }");
 		int ret = msgBox.exec();
 
 		switch (ret) {
@@ -162,6 +190,7 @@ void AccountsPage::edit_account_role() {
 void AccountsPage::check_access() {
 	string str = ui->label_9->text().toStdString();
 	if (str == "admin") {
+		ui->access_box->setChecked(true);
 		ui->access_box->setEnabled(false);
 	}
 	else if (accounts_db->get_int("LOGIN", str, 4) == 1) {
@@ -177,6 +206,7 @@ void AccountsPage::check_access() {
 void AccountsPage::check_role() {
 	string str = ui->label_9->text().toStdString();
 	if (str == "admin") {
+		ui->admin_box->setChecked(true);
 		ui->admin_box->setEnabled(false);
 	}
 	else if (accounts_db->get_int("LOGIN", str, 3) == 1) {
@@ -228,7 +258,7 @@ void AccountsPage::find_by_login()
 
 	QPushButton* btn;
 
-	const int START_X = 15, START_Y = 10, ADD = 245, ADD_Y = 110;
+	const int START_X = 15, START_Y = 20, ADD = 245, ADD_Y = 110;
 
 	int col = -1;
 	for (int row = 0; row < ids.size(); row++) {
@@ -246,29 +276,35 @@ void AccountsPage::find_by_login()
 		btn->setGeometry(START_X, START_Y, 235, 100);
 		if (accounts_db->get_int("LOGIN", str.toStdString(), 4) == 1) {
 			btn->setStyleSheet("QPushButton{"
-				"background-color: white; "
+				"background-color: rgb(255, 236, 220);"
 				"border-style: solid;"
-				"border-width: 1px;"
-				"border-radius: 10px;"
+				"border-width: 3px;"
 				"border-color: green;"
-				"font: 14pt \"Rockwell\"; "
+				"border-radius: 25px;"
+				"font: 14pt \"Rockwell\";"
 				"min-width: 4em;"
 				"padding: 3px; }"
 				"QPushButton::hover{"
-				"background-color: lightGray; }");
+				"background-color: rgb(255, 239, 250);"
+				"border-style: solid;"
+				"border-color: rgb(180, 155, 255);"
+				"color: rgb(180, 155, 255); }");
 		}
 		else {
 			btn->setStyleSheet("QPushButton{"
-				"background-color: white; "
+				"background-color: rgb(255, 236, 220);"
 				"border-style: solid;"
-				"border-width: 1px;"
-				"border-radius: 10px;"
+				"border-width: 3px;"
 				"border-color: red;"
-				"font: 14pt \"Rockwell\"; "
+				"border-radius: 25px;"
+				"font: 14pt \"Rockwell\";"
 				"min-width: 4em;"
 				"padding: 3px; }"
 				"QPushButton::hover{"
-				"background-color: lightGray; }");
+				"background-color: rgb(255, 239, 250);"
+				"border-style: solid;"
+				"border-color: rgb(180, 155, 255);"
+				"color: rgb(180, 155, 255); }");
 		}
 
 		if (search_true == str.toStdString()) {
@@ -287,10 +323,68 @@ void AccountsPage::find_by_login()
 				ui->label_inf_3->setText("");
 			});
 	}
-
-
 }
 
+void AccountsPage::delete_account()
+{
+	QString str1 = ui->label_9->text();
+	string str_for_del = ui->label_18->text().toStdString();
+	string str = ui->label_9->text().toStdString();
 
+	string field_for_delete = ui->label_9->text().toStdString();
+
+	this->session_account_login = str;
+
+	if (str_for_del == session_account_login) {
+        ui->label_15->setText("You can't to delete yourself account!");
+		
+		ui->stackedWidget->setCurrentWidget(ui->page_10);
+	}
+	else {
+		QMessageBox msgBox;
+		msgBox.setText("Do you really want to delete \n" + str1 + "?");
+		msgBox.setIcon(QMessageBox::Information);
+		msgBox.setInformativeText("");
+		msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+		msgBox.setDefaultButton(QMessageBox::Ok);
+		msgBox.setWindowIcon(QPixmap("time_management_tasks_to_do_list_planning_icon_188710.ico"));
+		msgBox.setWindowTitle("Confirm menu!");
+		msgBox.setStyleSheet("QMessageBox {"
+			"border-style: solid;"
+			"border-color: rgb(85,0,0);"
+			"background-color: rgb(255, 236, 220);"
+			"font: 12pt \"Rockwell\"; }"
+			"QPushButton {"
+			"background-color: rgb(255, 236, 220);"
+			"border-style: solid;"
+			"border-width: 3px;"
+			"border-radius: 15px;"
+			"border-color: rgb(85, 0, 0);"
+			"color: rgb(85, 0, 0);"
+			"font: 14pt \"Rockwell\"; "
+			"min-width: 4em;"
+			"padding: 3px; }"
+			"QPushButton::hover{"
+			"background-color: rgb(255, 239, 250);"
+			"border-style: solid;"
+			"border-color: rgb(180, 155, 255);"
+			"color: rgb(180, 155, 255); }");
+		int ret = msgBox.exec();
+
+		switch (ret) {
+		case QMessageBox::Ok:
+			accounts_db->delWeald("LOGIN='" + field_for_delete + "'");
+			ui->stackedWidget->setCurrentWidget(ui->page);
+		case QMessageBox::Cancel:
+			return;
+		default:
+			return;
+		}
+	}
+}
+
+void AccountsPage::remove_accounts_search() {
+	qDeleteAll(ui->page_4->findChildren<QPushButton*>("btn_of_accounts_search"));
+}
 
 

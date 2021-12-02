@@ -29,7 +29,7 @@ void GartenPage::create_table_for_gartens() {
 	vector<string> ids = gartens_db->get_strings(0);
 	QString str;
 
-	const int START_X = 15, START_Y = 10, ADD = 334, ADD_Y = 265;
+	const int START_X = 25, START_Y = 20, ADD = 326, ADD_Y = 265;
 
 	int col = -1;
 	for (int row = 0; row < ids.size(); row++) {
@@ -41,16 +41,20 @@ void GartenPage::create_table_for_gartens() {
 		}
 		btn->setGeometry(START_X + ADD * (row % 3), START_Y + ADD_Y * col, 300, 235);
 		btn->setStyleSheet("QPushButton{"
-			"background-color: white; "
+			"background-color: rgb(255, 236, 220);"
 			"border-style: solid;"
-			"border-width: 1px;"
-			"border-radius: 10px;"
-			"border-color: lightGray;"
+			"border-width: 3px;"
+			"border-radius: 20px;"
+			"border-color: rgb(85, 0, 0);"
+			"color: rgb(85, 0, 0);"
 			"font: 14pt \"Rockwell\"; "
 			"min-width: 4em;"
 			"padding: 3px; }"
 			"QPushButton::hover{"
-			"background-color: lightGray; }");
+			"background-color: rgb(255, 239, 250);"
+			"border-style: solid;"
+			"border-color: rgb(180, 155, 255);"
+			"color: rgb(180, 155, 255); }");
 
 
 		btn->show();
@@ -61,12 +65,19 @@ void GartenPage::create_table_for_gartens() {
 				open_edit_gartens_page();
 				ui->number_of_garten_3->setText(str);
 				value_quanity();
+				ui->number_of_garten->clear();
+				ui->quanity_of_group->clear();
+				ui->quanity_of_places->clear();
+				ui->affiliation->clear();
+				ui->free_places->clear();
+				ui->information_2->clear();
+				ui->certain_place->clear();
 			});
 	}
 }
 
 void GartenPage::remove_garten() {
-	qDeleteAll(ui->inf_gartens->findChildren<QPushButton*>("btn_of_garten"));
+	qDeleteAll(ui->page_5->findChildren<QPushButton*>("btn_of_garten"));
 }
 
 void GartenPage::open_edit_gartens_page() {
@@ -94,6 +105,7 @@ void GartenPage::add_new_garten()
 }
 
 void GartenPage::edits_menu() {
+	edit_number_of_garten();
 	edit_quanity_of_group();
 	edit_quanity_of_places();
 	edit_information();
@@ -194,12 +206,55 @@ void GartenPage::edit_certain_places() {
 
 void GartenPage::edit_free_places() {
 	string field_for_search = ui->label_26->text().toStdString();
-	int edit_field = ui->certain_place_3->text().toInt();
+	int edit_field = ui->free_places_3->text().toInt();
 
 	if (edit_field == NULL) {
 		return;
 	}
 	else {
 		gartens_db->update("FREEPLACES", to_string(edit_field), "NUMBER='" + field_for_search + "'");
+	}
+}
+
+void GartenPage::delete_garten()
+{
+	QString str1 = ui->label_26->text();
+	string field_for_search = ui->label_26->text().toStdString();
+	QMessageBox msgBox;
+	msgBox.setText("Do you really want to delete \n" + str1 + "?");
+	msgBox.setIcon(QMessageBox::Information);
+	msgBox.setInformativeText("");
+	msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+	msgBox.setDefaultButton(QMessageBox::Ok);
+	
+	msgBox.setStyleSheet("QMessageBox {"
+		"border-style: solid;"
+		"border-color: rgb(85,0,0);"
+		"background-color: rgb(255, 236, 220);"
+		"font: 12pt \"Rockwell\"; }"
+		"QPushButton {"
+		"background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-radius: 15px;"
+		"border-color: rgb(85, 0, 0);"
+		"color: rgb(85, 0, 0);"
+		"font: 14pt \"Rockwell\"; "
+		"min-width: 4em;"
+		"padding: 3px; }"
+		"QPushButton::hover{"
+		"background-color: rgb(255, 239, 250);"
+		"border-style: solid;"
+		"border-color: rgb(180, 155, 255);"
+		"color: rgb(180, 155, 255); }");
+	int ret = msgBox.exec();
+
+	switch (ret) {
+	case QMessageBox::Ok:
+		gartens_db->delWeald("NUMBER='" + field_for_search + "'");
+	case QMessageBox::Cancel:
+		ui->stackedWidget->setCurrentWidget(ui->page_13);
+	default:
+		return;
 	}
 }

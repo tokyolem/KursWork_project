@@ -16,4 +16,5 @@ struct Gartens {
 	string information = "";
 	string certain_places = "";
 	int free_places = 0;
+
 };

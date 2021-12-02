@@ -9,6 +9,7 @@
 #include "Data.h"
 #include "GartenPage.h"
 #include "GartensInfo.h"
+#include "UserGartensPage.h"
 
 
 class QtWidgetsApplication0 : public QMainWindow
@@ -38,11 +39,10 @@ private slots:
     void on_add_account_2_clicked();
     void on_Back_4_clicked();
     void on_Back_9_clicked();
-
-
     void on_search_acc_clicked();
-
     void on_pushButton_10_clicked();
+    void on_delete_gart_clicked();
+    void on_Back_10_clicked();
 
 private:
     Ui::QtWidgetsApplication0Class ui;

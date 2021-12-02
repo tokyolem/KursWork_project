@@ -24,10 +24,12 @@ public :
 	void add_new_account();
 	void check_role();
 	void find_by_login();
+	void delete_account();
+	void remove_accounts_search();
 	
 
 private:
-	
+	string session_account_login = "";
 	QWidget* _parent;
 	Ui::QtWidgetsApplication0Class* ui;
 	SQLdb* accounts_db = nullptr;

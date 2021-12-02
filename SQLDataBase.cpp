@@ -66,12 +66,10 @@ string SQLdb::get_thrustback(vector<string> weald) {
 	return sql;
 }
 
-
 void SQLdb::update(string weald, string value, string text) {
 	string sql = "UPDATE " + NAME_OF_DATABASE + " set " + weald + " = " + value + " where " + text + " ;";
 	get_sql_command_make(sql);
 }
-
 
 void SQLdb::delWeald(string rule) {
 	string sql = "DELETE from " + NAME_OF_DATABASE + " where " + rule + " ;";

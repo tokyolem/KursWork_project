@@ -26,6 +26,7 @@ public:
 	void edit_affiliation();
 	void edit_certain_places();
 	void edit_free_places();
+	void delete_garten();
 
 private:
 

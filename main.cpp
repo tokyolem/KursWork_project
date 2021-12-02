@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     QtWidgetsApplication0 w;
     w.setWindowTitle("Application");
-    w.setWindowIcon(QIcon("book_education_school_learning_study_icon_196573.ico"));
+    w.setWindowIcon(QIcon("to_do_list_notes_tasks_icon_207099.ico"));
     w.set_account_db(&accounts_db);
     w.set_garten_db(&garten_db);
     w.show();
