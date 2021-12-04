@@ -70,7 +70,7 @@
     <ClCompile Include="GartensInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserGartensPage.cpp">
+    <ClCompile Include="ChoisePageButtons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,7 +113,7 @@
     <QtMoc Include="GartensInfo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="UserGartensPage.h">
+    <QtMoc Include="ChoisePageButtons.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

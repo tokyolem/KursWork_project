@@ -28,7 +28,7 @@ void GartensInfo::create_table_for_gartens() {
 	for (int row = 0; row < ids.size(); row++) {
 		str = QString::fromStdString(gartens_db->get_text("NUMBER", ids[row], 0));
 		QPushButton* btn = new QPushButton(str, ui->inf_gartens);
-		btn->setObjectName("btn_of_gartens1");
+		btn->setObjectName("btn_of_gartensinf");
 		if (row % 3 == 0) {
 			col++;
 		}
@@ -37,10 +37,10 @@ void GartensInfo::create_table_for_gartens() {
 			"background-color: rgb(255, 236, 220);"
 			"border-style: solid;"
 			"border-width: 3px;"
-			"border-radius: 20px;"
+			"border-radius: 40px;"
 			"border-color: rgb(85, 0, 0);"
 			"color: rgb(85, 0, 0);"
-			"font: 14pt \"Rockwell\"; "
+			"font: 20pt \"Rockwell\"; "
 			"min-width: 4em;"
 			"padding: 3px; }"
 			"QPushButton::hover{"
@@ -63,7 +63,7 @@ void GartensInfo::create_table_for_gartens() {
 }
 
 void GartensInfo::remove_garten() {
-	qDeleteAll(ui->inf_gartens->findChildren<QPushButton*>("btn_of_accounts1"));
+	qDeleteAll(ui->inf_gartens->findChildren<QPushButton*>("btn_of_gartensinf"));
 }
 
 void GartensInfo::open_edit_account_page() {

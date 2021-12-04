@@ -47,7 +47,8 @@ void gartens_database(SQLdb* db) {
                 NewSQL_part{ "AFFILICATION",    "TEXT NOT NULL"},
                 NewSQL_part{ "INFORMATION",     "TEXT NOT NULL"},
                 NewSQL_part{ "CERTAINPLACES",   "TEXT NOT NULL"},
-                NewSQL_part{ "FREEPLACES",      "INT NOT NULL"} },
+                NewSQL_part{ "FREEPLACES",      "INT NOT NULL"},
+                NewSQL_part{ "PATH",            "TEXT NOT NULL"} },
        GARTENS_DATABASE_NAME);
 }
 

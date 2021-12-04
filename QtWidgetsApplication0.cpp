@@ -240,8 +240,19 @@ void QtWidgetsApplication0::on_pushButton_5_clicked()
 
 void QtWidgetsApplication0::on_add_new_garten_clicked()
 {
+	GartenPage* garten = new GartenPage(this, &ui, garten_db);
     ui.stackedWidget->setCurrentWidget(ui.page_12);
-	
+	ui.information_4->setStyleSheet("background-color: rgb(255, 236, 220);"
+		"border: 2px solid gray;"
+		"border-width: 3px;"
+		"border-radius: 50px;"
+		"border-color: rgb(85, 0, 0);"
+		"font: 14pt \"Rockwell\";"
+		"min-width: 10em;"
+		"color: rgb(255,236,220);"
+		"padding: 6px;"
+	);
+	ui.label_28->clear();
 }
 
 void QtWidgetsApplication0::on_add_account_2_clicked()
@@ -337,6 +348,47 @@ void QtWidgetsApplication0::on_delete_gart_clicked()
 
 void QtWidgetsApplication0::on_Back_10_clicked()
 {
+	GartensInfo* garten = new GartensInfo(this, &ui, garten_db);
+	garten->remove_garten();
+	garten->create_table_for_gartens();
 	ui.stackedWidget->setCurrentWidget(ui.page);
 }
 
+
+void QtWidgetsApplication0::on_Path_clicked()
+{
+	GartenPage* garten = new GartenPage(this, &ui, garten_db);
+	ui.information_4->setPlainText(QString::fromStdString(garten->path_to_image()));
+	garten->set_image_to_add();
+	ui.information_7->setStyleSheet("background-color: rgb(255, 236, 220);"
+		"border-style: solid;"
+		"border-width: 3px;"
+		"border-radius: 5px; "
+		"border-color: rgb(85,0,0)");
+}
+
+void QtWidgetsApplication0::on_Path_2_clicked()
+{
+	GartenPage* garten = new GartenPage(this, &ui, garten_db);
+	ui.information_5->setPlainText(QString::fromStdString(garten->path_to_image()));
+	garten->set_new_image_on_edit();
+}
+
+void QtWidgetsApplication0::on_Back_12_clicked()
+{
+	ui.stackedWidget->setCurrentWidget(ui.page_14);
+}
+
+void QtWidgetsApplication0::on_view_photo_clicked()
+{
+	string field_for_search = ui.label_21->text().toStdString();
+	string path = garten_db->get_text("NUMBER", field_for_search, 7);
+	ui.stackedWidget->setCurrentWidget(ui.page_15);
+
+	QPixmap pic2(QString::fromStdString(path));
+	QSize PicSize(801, 571);
+	pic2 = pic2.scaled(PicSize, Qt::KeepAspectRatio);
+
+	ui.label_img->setPixmap(pic2);
+
+}
