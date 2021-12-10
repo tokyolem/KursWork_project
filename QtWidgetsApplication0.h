@@ -1,4 +1,4 @@
-#define OBJECT
+#pragma once
 #include <iostream>
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsApplication0.h"

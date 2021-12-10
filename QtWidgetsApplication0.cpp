@@ -356,7 +356,6 @@ void QtWidgetsApplication0::on_pushButton_10_clicked()
 	GartensInfo* page = new GartensInfo(this, &ui, garten_db);
 	page->remove_garten();
 	page->create_table_for_gartens();
-
 }
 
 void QtWidgetsApplication0::on_delete_gart_clicked()
