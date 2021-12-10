@@ -11,7 +11,7 @@ class GartensInfo : public QMainWindow
 	Q_OBJECT
 public:
 	GartensInfo(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQLdb* gartens_db);
-	GartensInfo(vector<string>garten_num);
+	GartensInfo(vector<int>garten_num);
 
 	void create_table_for_gartens();
 	void remove_garten();
@@ -23,6 +23,6 @@ private:
 	QWidget* _parent;
 	Ui::QtWidgetsApplication0Class* ui;
 	SQLdb* gartens_db = nullptr;
-	vector<string>num;
+	vector<int>num;
 };
 

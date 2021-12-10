@@ -5,7 +5,7 @@
 
 using namespace std;
 
-GartensInfo::GartensInfo(vector<string>garten_num) {
+GartensInfo::GartensInfo(vector<int>garten_num) {
 	this->num = garten_num;
 }
 
@@ -19,14 +19,14 @@ GartensInfo::GartensInfo(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQ
 
 void GartensInfo::create_table_for_gartens() {
 	ui->stackedWidget_3->setCurrentWidget(ui->inf_gartens);
-	vector<string> ids = gartens_db->get_strings(0);
+	vector<int> ids = gartens_db->get_ints(8);
 	QString str;
 
 	const int START_X = 25, START_Y = 20, ADD = 326, ADD_Y = 265;
 
 	int col = -1;
 	for (int row = 0; row < ids.size(); row++) {
-		str = QString::fromStdString(gartens_db->get_text("NUMBER", ids[row], 0));
+		str = QString::fromStdString(gartens_db->get_text("ID", to_string(ids[row]), 0));
 		QPushButton* btn = new QPushButton(str, ui->inf_gartens);
 		btn->setObjectName("btn_of_gartensinf");
 		if (row % 3 == 0) {

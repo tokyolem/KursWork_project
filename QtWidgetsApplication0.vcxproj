@@ -90,6 +90,7 @@
     <ClCompile Include="ChoisePageButtons.cpp" />
     <ClCompile Include="GartenPage.cpp" />
     <ClCompile Include="GartensInfo.cpp" />
+    <ClCompile Include="Page.cpp" />
     <ClCompile Include="Registration.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SHA256.cpp" />
@@ -109,6 +110,7 @@
     <ClInclude Include="Data.h" />
     <QtMoc Include="GartenPage.h" />
     <QtMoc Include="GartensInfo.h" />
+    <ClInclude Include="Page.h" />
     <ClInclude Include="Registration.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SHA256.h" />

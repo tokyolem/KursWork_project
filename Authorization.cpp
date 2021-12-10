@@ -43,7 +43,26 @@ int Authorization::begin() {
 			msgBox.setStandardButtons(QMessageBox::Ok);
 			// На какой кнопке фокусироваться по умолчанию
 			msgBox.setDefaultButton(QMessageBox::Ok);
-			msgBox.setStyleSheet("QMessageBox{border: 2px solid gray; border-width: 2px; border-radius: 10px; border-color: lightGray; font: bold 14px; min-width: 10em; padding: 6px; background-color: rgb(246, 228, 255); }");
+			msgBox.setStyleSheet("QMessageBox {"
+				"border-style: solid;"
+				"border-color: rgb(85,0,0);"
+				"background-color: rgb(255, 236, 220);"
+				"font: 12pt \"Rockwell\"; }"
+				"QPushButton {"
+				"background-color: rgb(255, 236, 220);"
+				"border-style: solid;"
+				"border-width: 3px;"
+				"border-radius: 15px;"
+				"border-color: rgb(85, 0, 0);"
+				"color: rgb(85, 0, 0);"
+				"font: 14pt \"Rockwell\"; "
+				"min-width: 1em;"
+				"padding: 3px; }"
+				"QPushButton::hover{"
+				"background-color: rgb(255, 239, 250);"
+				"border-style: solid;"
+				"border-color: rgb(180, 155, 255);"
+				"color: rgb(180, 155, 255); }");
 			int ret = msgBox.exec();
 
 			switch (ret) {

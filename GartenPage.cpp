@@ -1,14 +1,8 @@
 #include "GartenPage.h"
-#include "QMessageBox"
-#include <QFileDialog>
-#include <QLayout>
-#include <vector>
-#include <string>
-#include <QProcess>
 
 using namespace std;
 
-GartenPage::GartenPage(vector<string>garten_num) {
+GartenPage::GartenPage(vector<int>garten_num) {
 	this->num = garten_num;
 }
 
@@ -20,27 +14,33 @@ GartenPage::GartenPage(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQLd
 	this->gartens_db = gartens_db;
 	this->page = ui->page_5;
 
+	this->number_of_first_output_element = new int(0);
+
 	connect(ui->accept_edit, &QPushButton::clicked, this, [=]()
 		{
 			edits_menu();
-			remove_garten();
-			create_table_for_gartens();
+			update_list();
 		});
 }
 
-void GartenPage::create_table_for_gartens() {
-	ChoisePageButtons* choiseBtn = new ChoisePageButtons (_parent, ui, gartens_db);
-	ui->stackedWidget_3->setCurrentWidget(ui->page_5);
-	vector<string> ids = gartens_db->get_strings(0);
-	QString str;
+void GartenPage::update_window() {
+	update_list();
+}
 
+void GartenPage::create_table_for_gartens(int * number_of_output_element) {
+	this->number_of_first_output_element = number_of_first_output_element;
+	ui->stackedWidget_3->setCurrentWidget(ui->page_5);
+	ids = gartens_db->get_ints(8);
+	QString str;
+	
 	const int START_X = 25, START_Y = 20, ADD = 326, ADD_Y = 265;
 
-	int col = -1;
-	for (int row = 0; row < ids.size(); row++) {
+	int last_index = (*number_of_first_output_element + NUMBER_OF_GARTENS_ON_PAGE) > ids.size() ? ids.size() : *number_of_first_output_element + NUMBER_OF_GARTENS_ON_PAGE;
 
-		
-		str = QString::fromStdString(gartens_db->get_text("NUMBER", ids[row], 0));
+	int col = -1;
+	for (int row = *number_of_first_output_element; row < last_index; row++) 
+	{
+		str = QString::fromStdString(gartens_db->get_text("ID", to_string(ids[row]), 0));
 		QPushButton* btn = new QPushButton(str , ui->page_5);
 		btn->setObjectName("btn_of_garten");
 		if (row % 3 == 0) {
@@ -62,11 +62,7 @@ void GartenPage::create_table_for_gartens() {
 			"border-style: solid;"
 			"border-color: rgb(180, 155, 255);"
 			"color: rgb(180, 155, 255); }");
-
-
 		btn->show();
-		choiseBtn->show_buttons();
-		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
 		connect(btn, &QPushButton::clicked, this,
 			[=]() {
 				ui->label_26->setText(str);
@@ -110,6 +106,7 @@ string GartenPage::path_to_image() {
 
 void GartenPage::add_new_garten()
 {
+	num = gartens_db->get_ints(8);
 	Gartens garten;
 	garten.number_of_garten = ui->number_of_garten->text().toStdString();
 	garten.quanity_of_group = ui->quanity_of_group->text().toInt();
@@ -119,6 +116,7 @@ void GartenPage::add_new_garten()
 	garten.certain_places = ui->certain_place->text().toStdString();
 	garten.free_places = ui->free_places->text().toInt();
 	garten.path = ui->information_4->toPlainText().toStdString();
+	garten.id = get_min_nonexist(num);
 	
 	set_image_to_add();
 
@@ -130,7 +128,8 @@ void GartenPage::add_new_garten()
 					"'" + garten.information + "'",
 					"'" + garten.certain_places + "'",
 					to_string(garten.free_places),
-					"'" + garten.path + "'"                   });
+					"'" + garten.path + "'",
+					to_string(garten.id)                });
 }
 
 void GartenPage::edits_menu() {
@@ -142,6 +141,7 @@ void GartenPage::edits_menu() {
 	edit_certain_places();
 	edit_free_places();
 	edit_image();
+	ui->label_31->setText("Changes have been made!");
 }
 
 void GartenPage::value_quanity()
@@ -284,6 +284,22 @@ QPixmap* GartenPage::get_image_pixpam(QString path_to_img, const int WIDTH, cons
 	return target;
 }
 
+void GartenPage::update_list()
+{
+	ids = gartens_db->get_ints(8);
+	ChoisePageButtons* choise = new ChoisePageButtons(_parent, ui, ui->page_5, ids, NUMBER_OF_GARTENS_ON_PAGE, number_of_first_output_element);
+	choise->set_pointer_to_page(this);
+	if (ids.size() > 6) {
+		choise->create_page_buttons(ui->page_5, ids, "btn_of_garten");
+	}
+	else {
+		choise->delete_buttons(ui->page_5);
+	}
+	remove_garten();
+	create_table_for_gartens(number_of_first_output_element);
+
+}
+
 void GartenPage::delete_garten()
 {
 	QString str1 = ui->label_26->text();
@@ -352,3 +368,4 @@ void GartenPage::set_new_image_on_edit() {
 	
 	ui->label_27->setPixmap(*pic2);
 }
+

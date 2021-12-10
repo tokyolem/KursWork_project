@@ -17,4 +17,5 @@ struct Gartens {
 	string certain_places = "";
 	int free_places = 0;
 	string path = "";
+	int id = 0;
 };

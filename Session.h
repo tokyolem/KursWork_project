@@ -1,15 +1,12 @@
 #pragma once
 #include "ui_QtWidgetsApplication0.h"
 #include <QDebug>
-#include "SQLDataBase.h"
 #include <QStackedWidget>
 #include <QMessageBox>
-#include "Users.h"
 #include <iostream>
 #include "registration.h"
 #include "Authorization.h"
 #include "QtWidgetsApplication0.h"
-#include "Data.h"
 
 
 class Session

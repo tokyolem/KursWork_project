@@ -1,40 +1,25 @@
 #include "ChoisePageButtons.h"
 
-ChoisePageButtons::ChoisePageButtons(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQLdb* gartens_db)
-	:QMainWindow(parent)
+ChoisePageButtons::ChoisePageButtons(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, QWidget* page, vector<int> num, const int NUMBER_OF_ELEMENTS_ON_PAGE, int* number_of_first_element_on_page)
+	: QMainWindow(parent), NUMBER_OF_ELEMENTS_ON_PAGE(NUMBER_OF_ELEMENTS_ON_PAGE)
 {
-	this->_parent = parent;
 	this->ui = ui;
-	this->gartens_db = gartens_db;
-	this->page = ui->page_5;
-
+	this->page = page;
+	this->num_garten = num;
+	this->number_of_first_element_on_page = number_of_first_element_on_page;
+	this->_parent = parent;
 }
 
-ChoisePageButtons::ChoisePageButtons(vector<string> garten_num)
-{
-	this->num = garten_num;
-}
-
-void ChoisePageButtons::show_buttons() 
-{	
-	vector<string>ids = gartens_db->get_strings(0);
-	if (ids.size() <= 6) {
-		delete_buttons();
-	}
-
-	else if (ids.size() > 6) {
-		create_buttons();
-	}
-}
-
-void ChoisePageButtons::create_buttons()
-{
+void ChoisePageButtons::create_page_buttons(QWidget* page, vector<int> size, QString element) {
 	QPushButton* front = new QPushButton(">", page);
 	QPushButton* back = new QPushButton("<", page);
+
 	front->setObjectName("front");
 	back->setObjectName("back");
-	front->setGeometry(610, 570, 41, 28);
-	back->setGeometry(550, 570, 41, 28);
+
+	front->setGeometry(640, 572, SIZE_X, SIZE_Y);
+	back->setGeometry(560, 572, SIZE_X, SIZE_Y);
+
 	front->setStyleSheet("QPushButton{"
 		"background-color: rgb(255, 236, 220);"
 		"border-style: solid;"
@@ -42,7 +27,7 @@ void ChoisePageButtons::create_buttons()
 		"border-radius: 10px;"
 		"border-color: rgb(85, 0, 0);"
 		"color: rgb(85, 0, 0);"
-		"font: 14pt \"Rockwell\"; "
+		"font: 20pt \"Rockwell\"; "
 		"min-width: 1em;"
 		"padding: 3px; }"
 		"QPushButton::hover{"
@@ -57,7 +42,7 @@ void ChoisePageButtons::create_buttons()
 		"border-radius: 10px;"
 		"border-color: rgb(85, 0, 0);"
 		"color: rgb(85, 0, 0);"
-		"font: 14pt \"Rockwell\"; "
+		"font: 20pt \"Rockwell\"; "
 		"min-width: 1em;"
 		"padding: 3px; }"
 		"QPushButton::hover{"
@@ -65,28 +50,51 @@ void ChoisePageButtons::create_buttons()
 		"border-style: solid;"
 		"border-color: rgb(180, 155, 255);"
 		"color: rgb(180, 155, 255); }");
+
 	front->show();
 	back->show();
+
+	connect(front, &QPushButton::clicked, page, [=]() {
+		page_next(element, size, page);
+		_page->update_window();
+		});
+	connect(back, &QPushButton::clicked, page, [=]() {
+		page_back(element, size, page);
+		_page->update_window();
+		});
+}
+
+void ChoisePageButtons::page_next(QString element, vector<int> vector, QWidget* page)
+{
+	int size_of_vector = vector.size();
 	
-	connect(front, &QPushButton::clicked, this, [=]() {
-		page_next();
-		});
-	connect(back, &QPushButton::clicked, this, [=]() {
-		page_back();
-		});
+	if (*number_of_first_element_on_page + NUMBER_OF_ELEMENTS_ON_PAGE <= size_of_vector) {
+		*number_of_first_element_on_page += 6;
+	}
 }
 
-void ChoisePageButtons::delete_buttons() {
-	qDeleteAll(ui->page_5->findChildren<QPushButton*>("front"));
-	qDeleteAll(ui->page_5->findChildren<QPushButton*>("back"));
-}
-
-void ChoisePageButtons::page_next()
+void ChoisePageButtons::page_back(QString element, vector<int> vector, QWidget* page)
 {
 	
+	int size_of_vector = vector.size();
+
+	if (*number_of_first_element_on_page - NUMBER_OF_ELEMENTS_ON_PAGE >=  0) {
+		*number_of_first_element_on_page -= 6;
+	}
+	else {
+		*number_of_first_element_on_page = 0;
+	}
 }
 
-void ChoisePageButtons::page_back()
-{
+void ChoisePageButtons::delete_buttons(QWidget* page) {
+	qDeleteAll(page->findChildren<QPushButton*>("front"));
+	qDeleteAll(page->findChildren<QPushButton*>("back"));
+}
 
+void ChoisePageButtons::delete_elements_on_page(QWidget* page, QString element) {
+	qDeleteAll(page->findChildren<QPushButton*>(element));
+}
+
+void ChoisePageButtons::set_pointer_to_page(Page* _page) {
+	this->_page = _page;
 }

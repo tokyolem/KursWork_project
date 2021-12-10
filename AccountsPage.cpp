@@ -1,7 +1,4 @@
 #include "AccountsPage.h"
-#include "QMessageBox"
-#include <vector>
-#include <string>
 
 using namespace std;
 
@@ -23,11 +20,9 @@ AccountsPage::AccountsPage(QWidget * parent, Ui::QtWidgetsApplication0Class * ui
 			edit_account_role();
 			ui->access_box->update();
 			ui->admin_box->update();
-			ui->label_inf_3->setText("Changes have been made!");
-			ui->label_inf_3->setGeometry(495, 489, 361, 31);
-			ui->label_inf_3->setStyleSheet("color: green");
-			remove_accounts();
-			create_table_for_accounts();
+			ui->label_15->setText("Changes have been made!");
+			ui->label_15->setGeometry(495, 489, 361, 31);
+			ui->label_15->setStyleSheet("color: green");
 		});
 }
 
@@ -95,7 +90,7 @@ void AccountsPage::create_table_for_accounts() {
 				open_edit_account_page();
 				check_access();
 				check_role();
-				ui->label_inf_3->setText("");
+				ui->label_15->setText("");
 				ui->set_password_edit->clear();
 				ui->set_password_edit_2->clear();
 			});
@@ -125,7 +120,7 @@ void AccountsPage::edit_account_access() {
 }
 
 void AccountsPage::edit_account_password() {
-	CheckFields check;
+	CheckFields check(ui);
 	string str = ui->label_9->text().toStdString();
 
 	string password = ui->set_password_edit->text().toStdString();
@@ -142,41 +137,7 @@ void AccountsPage::edit_account_password() {
 		accounts_db->update("SALT", "'" + salt + "'", "LOGIN='" + str + "'");
 	}
 	else {
-		QMessageBox msgBox;
-		msgBox.setText("Passwords don't match!");
-		msgBox.setWindowIcon(QPixmap("time_management_tasks_to_do_list_planning_icon_188710.ico"));
-		msgBox.setWindowTitle("Confirm menu!");
-		msgBox.setInformativeText("Are you sure?");
-		msgBox.setStandardButtons(QMessageBox::Ok);
-		msgBox.setDefaultButton(QMessageBox::Ok);
-		msgBox.setStyleSheet("QMessageBox {"
-			"border-style: solid;"
-			"border-color: rgb(85,0,0);"
-			"background-color: rgb(255, 236, 220);"
-			"font: 12pt \"Rockwell\"; }"
-			"QPushButton {"
-			"background-color: rgb(255, 236, 220);"
-			"border-style: solid;"
-			"border-width: 3px;"
-			"border-radius: 15px;"
-			"border-color: rgb(85, 0, 0);"
-			"color: rgb(85, 0, 0);"
-			"font: 14pt \"Rockwell\"; "
-			"min-width: 4em;"
-			"padding: 3px; }"
-			"QPushButton::hover{"
-			"background-color: rgb(255, 239, 250);"
-			"border-style: solid;"
-			"border-color: rgb(180, 155, 255);"
-			"color: rgb(180, 155, 255); }");
-		int ret = msgBox.exec();
-
-		switch (ret) {
-		case QMessageBox::Ok:
-			ui->stackedWidget->setCurrentWidget(ui->page_10);
-		default:
-			return ;
-		}
+		ui->label_15->setText("Passwords don't match!");
 	}
 }
 
@@ -220,12 +181,13 @@ void AccountsPage::check_role() {
 }
 
 void AccountsPage::add_new_account() {
+	accounts_id = accounts_db->get_ints(5);
 	Account account;
 	Registration registration(accounts_db, ui);
 	CheckFields checkfields(ui);
 	string pass_right = ui->set_repassword_reg->text().toStdString();
 
-	account.id = registration.get_min_nonexist_id();
+	account.id = registration.get_min_nonexist(accounts_id);
 	account.login = ui->setLogin_reg_2->text().toStdString();
 	string pass = ui->set_password_reg->text().toStdString();
 	account.salt = checkfields.get_generated_salt();
@@ -320,7 +282,7 @@ void AccountsPage::find_by_login()
 				open_edit_account_page();
 				check_access();
 				check_role();
-				ui->label_inf_3->setText("");
+				ui->label_15->setText("");
 			});
 	}
 }
@@ -336,9 +298,44 @@ void AccountsPage::delete_account()
 	this->session_account_login = str;
 
 	if (str_for_del == session_account_login) {
-        ui->label_15->setText("You can't to delete yourself account!");
-		
-		ui->stackedWidget->setCurrentWidget(ui->page_10);
+		QMessageBox msgBox;
+		msgBox.setText("Do you really want to delete \n" + str1 + "?");
+		msgBox.setIcon(QMessageBox::Information);
+		msgBox.setInformativeText("");
+		msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+		msgBox.setDefaultButton(QMessageBox::Ok);
+		msgBox.setWindowIcon(QPixmap("time_management_tasks_to_do_list_planning_icon_188710.ico"));
+		msgBox.setWindowTitle("Confirm menu!");
+		msgBox.setStyleSheet("QMessageBox {"
+			"border-style: solid;"
+			"border-color: rgb(85,0,0);"
+			"background-color: rgb(255, 236, 220);"
+			"font: 12pt \"Rockwell\"; }"
+			"QPushButton {"
+			"background-color: rgb(255, 236, 220);"
+			"border-style: solid;"
+			"border-width: 3px;"
+			"border-radius: 15px;"
+			"border-color: rgb(85, 0, 0);"
+			"color: rgb(85, 0, 0);"
+			"font: 14pt \"Rockwell\"; "
+			"min-width: 4em;"
+			"padding: 3px; }"
+			"QPushButton::hover{"
+			"background-color: rgb(255, 239, 250);"
+			"border-style: solid;"
+			"border-color: rgb(180, 155, 255);"
+			"color: rgb(180, 155, 255); }");
+		int ret = msgBox.exec();
+
+		switch (ret) {
+		case QMessageBox::Ok:
+			ui->label_15->setText("You can't to delete your account!");
+			ui->stackedWidget->setCurrentWidget(ui->page_10);
+			return;
+		case QMessageBox::Cancel:
+			return;
+		}
 	}
 	else {
 		QMessageBox msgBox;
@@ -376,8 +373,6 @@ void AccountsPage::delete_account()
 			accounts_db->delWeald("LOGIN='" + field_for_delete + "'");
 			ui->stackedWidget->setCurrentWidget(ui->page);
 		case QMessageBox::Cancel:
-			return;
-		default:
 			return;
 		}
 	}

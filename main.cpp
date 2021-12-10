@@ -41,14 +41,15 @@ void accounts_database(SQLdb* db) {
 
 void gartens_database(SQLdb* db) {
     db->open_SQL();
-    db->create_table({ NewSQL_part{ "NUMBER",   "TEXT PRIMARY KEY NOT NULL"},
+    db->create_table({ NewSQL_part{ "NUMBER",   "TEXT NOT NULL"},
                 NewSQL_part{ "QGROUP",          "INT NOT NULL"},
                 NewSQL_part{ "QPLACES",         "INT NOT NULL"},
                 NewSQL_part{ "AFFILICATION",    "TEXT NOT NULL"},
                 NewSQL_part{ "INFORMATION",     "TEXT NOT NULL"},
                 NewSQL_part{ "CERTAINPLACES",   "TEXT NOT NULL"},
                 NewSQL_part{ "FREEPLACES",      "INT NOT NULL"},
-                NewSQL_part{ "PATH",            "TEXT NOT NULL"} },
+                NewSQL_part{ "PATH",            "TEXT NOT NULL"},
+                NewSQL_part{ "ID",              "INT PRIMARY KEY NOT NULL"} },
        GARTENS_DATABASE_NAME);
 }
 

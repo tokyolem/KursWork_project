@@ -1,14 +1,21 @@
 #pragma once
+#include <iostream>
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsApplication0.h"
-#include <QPainter>
-#include <QLabel>
 #include "Registration.h"
+#include "Authorization.h"
 #include "AccountsPage.h"
 #include "Session.h"
 #include "Data.h"
+#include "Users.h"
 #include "GartenPage.h"
 #include "GartensInfo.h"
+#include "SQLDataBase.h"
+#include <QWidget>
+#include <QPainter>
+#include <vector>
+#include <QFileDialog>
+#include <QProcess>
 
 
 

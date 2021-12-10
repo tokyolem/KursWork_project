@@ -4,9 +4,10 @@
 #include <QtWidgets/QMainWindow>
 #include "SQLDataBase.h"
 #include <iostream>
+#include "Page.h"
 
 
-class AccountsPage : public QMainWindow
+class AccountsPage : public QMainWindow, public Page
 {
 	Q_OBJECT
 public :
@@ -26,7 +27,7 @@ public :
 	void find_by_login();
 	void delete_account();
 	void remove_accounts_search();
-	
+	virtual void update_window() {};
 
 private:
 	string session_account_login = "";

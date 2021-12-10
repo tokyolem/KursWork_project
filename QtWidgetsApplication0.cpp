@@ -4,7 +4,8 @@ QtWidgetsApplication0::QtWidgetsApplication0(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-   
+	ui.setLogin->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z|0-9|_|-|.|@]{1,30}")));
+	ui.setPassword->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z|0-9|_|-|!|@|#|$|%|^|&|*|(|)]{1,40}")));
 }
 
 void QtWidgetsApplication0::set_account_db(SQLdb* accounts_db) {
@@ -17,11 +18,17 @@ void QtWidgetsApplication0::set_garten_db(SQLdb* garten_db) {
 
 void QtWidgetsApplication0::on_Register_clicked()
 {
+	ui.setLoginReg->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z|0-9|_|-|.|@]{1,30}")));
+	ui.setPasswordReg->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z|0-9|_|!|@|#|$|%|^|&|*|(|)]{1,40}")));
+	ui.RePassword->setValidator(new QRegExpValidator(QRegExp("[a-zA-Z|0-9|_|!|@|#|$|%|^|&|*|(|)]{1,40}")));
     ui.stackedWidget->setCurrentWidget(ui.main_second);
 }
 
 void QtWidgetsApplication0::on_Log_in_clicked()
 {
+	CheckFields* checkFields = new CheckFields(&ui);
+	checkFields->ban();
+	
     AccountsPage* page = new AccountsPage(this, &ui, accounts_db);
     page->remove_accounts();
     Session session(accounts_db, garten_db, &ui);
@@ -45,6 +52,13 @@ void QtWidgetsApplication0::on_Log_in_clicked()
 void QtWidgetsApplication0::on_Back_clicked()
 {
     ui.stackedWidget->setCurrentWidget(ui.main_first);
+	ui.label_5->setText("");
+	ui.label_inf->setText("");
+	ui.setLoginReg->clear();
+	ui.setPasswordReg->clear();
+	ui.RePassword->clear();
+	ui.setLogin->clear();
+	ui.setPassword->clear();
 }
 
 void QtWidgetsApplication0::on_Back_2_clicked()
@@ -65,6 +79,9 @@ void QtWidgetsApplication0::on_Register_begin_clicked()
 void QtWidgetsApplication0::on_pushButton_8_clicked()
 {
     ui.stackedWidget->setCurrentWidget(ui.main_first);
+	ui.setLogin->clear();
+	ui.setPassword->clear();
+	ui.label_inf->setText("");
 }
 
 void QtWidgetsApplication0::on_pushButton_4_clicked()
@@ -128,7 +145,6 @@ void QtWidgetsApplication0::on_remove_acc_clicked()
 	account->delete_account();
 	account->remove_accounts();
 	account->create_table_for_accounts();
-	ui.stackedWidget->setCurrentWidget(ui.page);
 }
 
 void QtWidgetsApplication0::on_accounts_edit_clicked()
@@ -138,7 +154,14 @@ void QtWidgetsApplication0::on_accounts_edit_clicked()
 
 void QtWidgetsApplication0::on_Back_3_clicked()
 {
+	AccountsPage* account = new AccountsPage(this, &ui, accounts_db);
     ui.stackedWidget->setCurrentWidget(ui.page);
+	account->remove_accounts();
+	account->create_table_for_accounts();
+	ui.setLogin_reg_2->clear();
+	ui.set_password_reg->clear();
+	ui.set_repassword_reg->clear();
+	ui.label_inf_2->setText("");
 }
 
 void QtWidgetsApplication0::on_add_account_clicked()
@@ -233,8 +256,8 @@ void QtWidgetsApplication0::on_pushButton_5_clicked()
 		"color: rgb(180, 155, 255); }");
 
 	GartenPage* garten = new GartenPage(this, &ui, garten_db);
-	garten->remove_garten();
-	garten->create_table_for_gartens();
+	garten->update_list();
+	
 	
 }
 
@@ -264,8 +287,7 @@ void QtWidgetsApplication0::on_add_account_2_clicked()
 void QtWidgetsApplication0::on_Back_4_clicked()
 {
 	GartenPage* garten = new GartenPage(this, &ui, garten_db);
-	garten->remove_garten();
-	garten->create_table_for_gartens();
+	garten->update_list();
 	ui.stackedWidget->setCurrentWidget(ui.page);
 }
 
@@ -273,8 +295,8 @@ void QtWidgetsApplication0::on_Back_9_clicked()
 {
 	ui.stackedWidget->setCurrentWidget(ui.page);
 	GartenPage* garten = new GartenPage(this, &ui, garten_db);
-	garten->remove_garten();
-	garten->create_table_for_gartens();
+	garten->update_list();
+	ui.label_31->setText("");
 }
 
 void QtWidgetsApplication0::on_search_acc_clicked()
@@ -341,8 +363,7 @@ void QtWidgetsApplication0::on_delete_gart_clicked()
 	GartenPage* garten = new GartenPage(this, &ui, garten_db);
 	
 	garten->delete_garten();
-	garten->remove_garten();
-	garten->create_table_for_gartens();
+	garten->update_list();
 	ui.stackedWidget->setCurrentWidget(ui.page);
 }
 
@@ -372,6 +393,7 @@ void QtWidgetsApplication0::on_Path_2_clicked()
 	GartenPage* garten = new GartenPage(this, &ui, garten_db);
 	ui.information_5->setPlainText(QString::fromStdString(garten->path_to_image()));
 	garten->set_new_image_on_edit();
+	
 }
 
 void QtWidgetsApplication0::on_Back_12_clicked()
