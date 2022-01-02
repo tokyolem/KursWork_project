@@ -4,7 +4,7 @@
 #include "Users.h"
 #include "Registration.h"
 
-void accounts_database(SQLdb* db);
+void accounts_database(SQLdb* db)
 void gartens_database(SQLdb* db);
 void add_admin_in_db_if_not_found(SQLdb* db);
 Ui::QtWidgetsApplication0Class* ui;
