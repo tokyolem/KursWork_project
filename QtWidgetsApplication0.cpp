@@ -309,7 +309,7 @@ void QtWidgetsApplication0::on_search_acc_clicked()
 
 void QtWidgetsApplication0::on_pushButton_10_clicked()
 {
-		ui.pushButton_4->setStyleSheet("QPushButton{"
+	ui.pushButton_4->setStyleSheet("QPushButton{"
 		"background-color: rgb(255, 236, 220);"
 		"border-style: solid;"
 		"border-width: 3px;"
@@ -353,9 +353,8 @@ void QtWidgetsApplication0::on_pushButton_10_clicked()
 		"border-color: rgb(180, 155, 255);"
 		"color: rgb(180, 155, 255); }");
 
-	GartensInfo* page = new GartensInfo(this, &ui, garten_db);
-	page->remove_garten();
-	page->create_table_for_gartens();
+	GartensInfo* garten = new GartensInfo(this, &ui, garten_db);
+	garten->update_list();
 }
 
 void QtWidgetsApplication0::on_delete_gart_clicked()
@@ -370,8 +369,7 @@ void QtWidgetsApplication0::on_delete_gart_clicked()
 void QtWidgetsApplication0::on_Back_10_clicked()
 {
 	GartensInfo* garten = new GartensInfo(this, &ui, garten_db);
-	garten->remove_garten();
-	garten->create_table_for_gartens();
+	garten->update_list();
 	ui.stackedWidget->setCurrentWidget(ui.page);
 }
 

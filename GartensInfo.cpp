@@ -9,26 +9,38 @@ GartensInfo::GartensInfo(vector<int>garten_num) {
 	this->num = garten_num;
 }
 
+void GartensInfo::update_window()
+{
+	update_list();
+}
+
 GartensInfo::GartensInfo(QWidget* parent, Ui::QtWidgetsApplication0Class* ui, SQLdb* gartens_db)
 	: QMainWindow(parent)
 {
 	this->_parent = parent;
 	this->ui = ui;
 	this->gartens_db = gartens_db;
+	this->page = ui->page_5;
+
+	this->number_of_first_output_element = new int(0);
 }
 
-void GartensInfo::create_table_for_gartens() {
+void GartensInfo::create_table_for_gartens(int* number_of_first_output_element) {
+	this->number_of_first_output_element = number_of_first_output_element;
 	ui->stackedWidget_3->setCurrentWidget(ui->inf_gartens);
-	vector<int> ids = gartens_db->get_ints(8);
+	ids = gartens_db->get_ints(8);
 	QString str;
 
 	const int START_X = 25, START_Y = 20, ADD = 326, ADD_Y = 265;
 
+	int last_index = (*number_of_first_output_element + NUMBER_OF_GARTENS_ON_PAGE) > ids.size() ? ids.size() : *number_of_first_output_element + NUMBER_OF_GARTENS_ON_PAGE;
+
 	int col = -1;
-	for (int row = 0; row < ids.size(); row++) {
+	for (int row = *number_of_first_output_element; row < last_index; row++)
+	{
 		str = QString::fromStdString(gartens_db->get_text("ID", to_string(ids[row]), 0));
 		QPushButton* btn = new QPushButton(str, ui->inf_gartens);
-		btn->setObjectName("btn_of_gartensinf");
+		btn->setObjectName("btn_of_garten");
 		if (row % 3 == 0) {
 			col++;
 		}
@@ -48,8 +60,6 @@ void GartensInfo::create_table_for_gartens() {
 			"border-style: solid;"
 			"border-color: rgb(180, 155, 255);"
 			"color: rgb(180, 155, 255); }");
-
-
 		btn->show();
 		//connect(btn, SIGNAL(clicked()), _parent, SLOT(on_btn_clicked()));
 		connect(btn, &QPushButton::clicked, this,
@@ -60,6 +70,22 @@ void GartensInfo::create_table_for_gartens() {
 				get_Infromation();
 			});
 	}
+}
+
+void GartensInfo::update_list()
+{
+	ids = gartens_db->get_ints(8);
+	ChoisePageButtons* choise = new ChoisePageButtons(_parent, ui, ui->inf_gartens, ids, NUMBER_OF_GARTENS_ON_PAGE, number_of_first_output_element);
+	choise->set_pointer_to_page(this);
+	if (ids.size() > 6) {
+		choise->create_page_buttons(ui->inf_gartens, ids, "btn_of_garten");
+	}
+	else {
+		choise->delete_buttons(ui->inf_gartens);
+	}
+	remove_garten();
+	create_table_for_gartens(number_of_first_output_element);
+
 }
 
 void GartensInfo::remove_garten() {
